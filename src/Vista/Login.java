@@ -5,6 +5,11 @@
  */
 package Vista;
 
+import Codigo.Codigo_Login;
+import Datos.Cuentas_Usuarios;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author estudiante
@@ -37,6 +42,11 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnIniciar.setText("Iniciar");
+        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Usuario:");
 
@@ -94,6 +104,20 @@ public class Login extends javax.swing.JFrame {
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
+        Codigo_Login cl = new Codigo_Login();
+        ArrayList lista = cl.Verificar(txtUsuario.getText(), String.valueOf(txtPass.getPassword()));
+        if((boolean)lista.get(0)){
+            if(lista.get(1).equals("1")){
+                //usuario o admin
+            }else{
+                //usuario o admin
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, lista.get(1));
+        }
+    }//GEN-LAST:event_btnIniciarActionPerformed
 
     /**
      * @param args the command line arguments
