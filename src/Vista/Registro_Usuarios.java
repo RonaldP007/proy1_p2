@@ -43,6 +43,12 @@ public class Registro_Usuarios extends javax.swing.JFrame {
 
         jLabel4.setText("Digite nombre usuario");
 
+        txtReg_ced.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtReg_cedKeyTyped(evt);
+            }
+        });
+
         jLabel5.setText("Digite numero de cedula");
 
         jLabel6.setText("Digite direccion de correo electronico");
@@ -96,6 +102,13 @@ public class Registro_Usuarios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtReg_cedKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtReg_cedKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9' && c != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtReg_cedKeyTyped
 
     /**
      * @param args the command line arguments

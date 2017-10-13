@@ -88,6 +88,9 @@
     <Component class="javax.swing.JTextField" name="txtReg_Pass">
     </Component>
     <Component class="javax.swing.JTextField" name="txtReg_ced">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtReg_cedKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
