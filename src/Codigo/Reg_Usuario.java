@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package Codigo;
-
+import Datos.Reg_Usuari;
 /**
  *
  * @author estudiante
  */
 public class Reg_Usuario {
-    
+    public void Comp_usu(){
+        Reg_Usuari usu_new = new Reg_Usuari();
+        
+    }
 }

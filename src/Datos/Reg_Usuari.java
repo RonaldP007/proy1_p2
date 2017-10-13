@@ -18,11 +18,11 @@ import javax.swing.JOptionPane;
  */
 public class Reg_Usuari {
 
-    public void usuarios_reg(String txtReg_Usu, String txtReg_Pass, String txtReg_ced, String txtReg_correo) {
+    public boolean usuarios_reg(String txtReg_Usu) {
+        boolean disponible = false;
         try {
             String temp;
             BufferedReader bf = new BufferedReader(new FileReader("src/Archivos/cuentas.txt"));
-
             temp = "";
             String bfRead;
             while ((bfRead = bf.readLine()) != null) {
@@ -30,27 +30,28 @@ public class Reg_Usuari {
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[0].equals(txtReg_Usu)) {
-                    JOptionPane.showMessageDialog(null, "Ese Usuario ya se encuentra registrado");
-
-                } else {
-                    try {
-                        String datos = txtReg_Usu + ";" + txtReg_Pass + ";" + txtReg_ced + ";" + txtReg_correo+";"+"1";
-                        File archivo = new File("src/Archivos/cuentas.txt");
-                        FileWriter escribir = new FileWriter(archivo, true);
-                        escribir.write( datos + System.lineSeparator());
-                        escribir.close();
- 
-          
-
-                    } catch (IOException e) {
-                        System.out.println("Error al escribir" + e);
-                    }
+                    disponible = true;
                 }
-
             }
 
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
+        }
+        return disponible;
+    }
+
+    public void guardar_usuario(String txtReg_Usu, String txtReg_Pass, String txtReg_ced, String txtReg_correo) {
+
+        try {
+            String datos = txtReg_Usu + ";" + txtReg_Pass + ";" + txtReg_ced + ";" + txtReg_correo + ";" + "1";
+            File archivo = new File("src/Archivos/cuentas.txt");
+            FileWriter escribir = new FileWriter(archivo, true);
+            escribir.write(datos + System.lineSeparator());
+            escribir.close();
+
+        } catch (IOException e) {
+            System.out.println("Error al escribir" + e);
+
         }
     }
 }
