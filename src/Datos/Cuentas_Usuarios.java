@@ -17,8 +17,8 @@ public class Cuentas_Usuarios {
     public boolean Verificar_cuenta(String cuenta,String clave){
         boolean existe_usuario = false;
         String line;
-        String[] usuario_archivo = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/archivos/cuentas.txt"))){
+        String[] usuario_archivo;
+        try(BufferedReader br = new BufferedReader(new FileReader("src/Archivos/cuentas.txt"))){
             while(((line = br.readLine())!= null)){
                 usuario_archivo = line.split(";");
                 if(usuario_archivo[0].equals(cuenta) && usuario_archivo[1].equals(clave)){
@@ -34,7 +34,7 @@ public class Cuentas_Usuarios {
         public String[] Buscar_cuenta(String cuenta,String clave){
         String line;
         String[] usuario_archivo = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/archivos/cuentas.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/Archivos/cuentas.txt"))){
             while(((line = br.readLine())!= null)){
                 usuario_archivo = line.split(";");
                 if(usuario_archivo[0].equals(cuenta) && usuario_archivo[1].equals(clave)){
