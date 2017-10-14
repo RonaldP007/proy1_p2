@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import Codigo.Reg_Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author estudiante
@@ -16,6 +19,7 @@ public class Registro_Usuarios extends javax.swing.JFrame {
      */
     public Registro_Usuarios() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -54,6 +58,11 @@ public class Registro_Usuarios extends javax.swing.JFrame {
         jLabel6.setText("Digite direccion de correo electronico");
 
         jButton1.setText("Registrar Usuario");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,6 +118,26 @@ public class Registro_Usuarios extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtReg_cedKeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Reg_Usuario cod = new Reg_Usuario();
+        boolean disp = cod.Comp_usu(txtReg_Usu.getText());
+        boolean esp = false;
+
+        if (disp == false) {
+            JOptionPane.showMessageDialog(null, "Ese usuario no se encuentra disponible");
+        }
+        if (txtReg_Usu.getText().equals("") || txtReg_Pass.getText().equals("") || txtReg_ced.getText().equals("") || txtReg_correo.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Hay casillas vacias");
+            esp = true;
+        } else {
+            if (disp == true & esp == false) {
+                cod.Guard_Usu(txtReg_Usu.getText(), txtReg_Pass.getText(), txtReg_ced.getText(), txtReg_correo.getText());
+                JOptionPane.showMessageDialog(null, "Usuario Registrado");
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

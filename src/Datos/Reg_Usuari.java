@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -19,18 +19,18 @@ import javax.swing.JOptionPane;
 public class Reg_Usuari {
 
     public boolean usuarios_reg(String txtReg_Usu) {
-        boolean disponible = false;
+        boolean disponible = true;
         try {
             String temp;
             BufferedReader bf = new BufferedReader(new FileReader("src/Archivos/cuentas.txt"));
-            temp = "";
             String bfRead;
             while ((bfRead = bf.readLine()) != null) {
                 temp = bfRead;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[0].equals(txtReg_Usu)) {
-                    disponible = true;
+                    disponible = false;
+                    return disponible;
                 }
             }
 

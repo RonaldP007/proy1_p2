@@ -4,14 +4,26 @@
  * and open the template in the editor.
  */
 package Codigo;
+
 import Datos.Reg_Usuari;
+
 /**
  *
  * @author estudiante
  */
 public class Reg_Usuario {
-    public void Comp_usu(){
-        Reg_Usuari usu_new = new Reg_Usuari();
-        
+    Reg_Usuari usu_new = new Reg_Usuari();
+    
+
+    public boolean Comp_usu(String txtReg_Usu) {
+        boolean dp = usu_new.usuarios_reg(txtReg_Usu);
+
+        return dp;
+
     }
+
+    public void  Guard_Usu(String txtReg_Usu, String txtReg_Pass, String txtReg_ced, String txtReg_correo) {
+        usu_new.guardar_usuario(txtReg_Usu, txtReg_Pass, txtReg_ced, txtReg_correo);
+    }
+
 }

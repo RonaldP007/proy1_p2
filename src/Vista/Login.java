@@ -6,7 +6,6 @@
 package Vista;
 
 import Codigo.Codigo_Login;
-import Datos.Cuentas_Usuarios;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -21,6 +20,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -58,8 +58,6 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("Contraseña:");
 
-        txtPass.setText("jPasswordField1");
-
         jButton1.setText("Registrarse");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -95,7 +93,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIniciar)
                     .addComponent(jButton1))
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
