@@ -6,6 +6,7 @@
 package Vista;
 
 import Codigo.Reg_Usuario;
+import Codigo.Envios_correos;
 import javax.swing.JOptionPane;
 
 /**
@@ -122,6 +123,7 @@ public class Registro_Usuarios extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Reg_Usuario cod = new Reg_Usuario();
+        Envios_correos evc = new Envios_correos();
         boolean disp = cod.Comp_usu(txtReg_Usu.getText());
         boolean esp = false;
 
@@ -134,7 +136,8 @@ public class Registro_Usuarios extends javax.swing.JFrame {
         } else {
             if (disp == true & esp == false) {
                 cod.Guard_Usu(txtReg_Usu.getText(), txtReg_Pass.getText(), txtReg_ced.getText(), txtReg_correo.getText());
-                JOptionPane.showMessageDialog(null, "Usuario Registrado");
+                
+                evc.SendMail("proyecto1p2tienda@gmail.com", "UTN2017UTN", "Gracias por registrarse en nuestra tienda", txtReg_correo.getText(), "Registro Exitoso");
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
