@@ -9,12 +9,12 @@ package Vista.cat_mus;
  *
  * @author estudiante
  */
-public class Eliminar extends javax.swing.JFrame {
+public class Eliminar_Disco extends javax.swing.JFrame {
 
     /**
      * Creates new form Eliminar
      */
-    public Eliminar() {
+    public Eliminar_Disco() {
         initComponents();
     }
 
@@ -90,17 +90,9 @@ public class Eliminar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnEliminar1;
-    private javax.swing.JComboBox<String> cbDisco;
-    private javax.swing.JComboBox<String> cbDisco1;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

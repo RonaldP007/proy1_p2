@@ -9,12 +9,12 @@ package Vista.cat_mus;
  *
  * @author estudiante
  */
-public class Crear extends javax.swing.JFrame {
+public class Crear_Disco extends javax.swing.JFrame {
 
     /**
      * Creates new form Crear
      */
-    public Crear() {
+    public Crear_Disco() {
         initComponents();
         setLocationRelativeTo(null);
     }
