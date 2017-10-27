@@ -5,7 +5,7 @@
  */
 package Codigo;
 
-import Datos.Cuentas_Usuarios;
+import Codigo_Archivos.Cuentas_Usuarios;
 import java.util.ArrayList;
 
 /**
@@ -16,20 +16,17 @@ public class Codigo_Login {
     public ArrayList Verificar(String cuenta,String clave){
         String[] usuario_info;
         ArrayList lista = new ArrayList();
-        boolean usuario = false;
         Cuentas_Usuarios cu = new Cuentas_Usuarios();
         if(cu.Verificar_cuenta(cuenta,clave)){
             usuario_info = cu.Buscar_cuenta(cuenta,clave);
-            if(usuario_info[4].equals("0")){
-                usuario = true;
-                lista.add(usuario);
+            if(usuario_info[4].equals("0")){               
                 lista.add("0");
+                lista.add(usuario_info);
             }else{
-                lista.add(usuario);
                 lista.add("1");
+                lista.add(usuario_info);
             }
         }else{
-            lista.add(usuario);
             lista.add("El usuario o la contraseña no son correctos");
         }
         return lista;

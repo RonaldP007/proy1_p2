@@ -5,6 +5,7 @@
  */
 package Vista.cat_peli;
 
+import Codigo.CRUB_Discos;
 import Codigo.Verificar_En_Archivo;
 import javax.swing.JOptionPane;
 
@@ -12,12 +13,13 @@ import javax.swing.JOptionPane;
  *
  * @author Enrique
  */
-public class Crear_peli extends javax.swing.JFrame {
+public class Crear_Pelicula extends javax.swing.JDialog {
 
     /**
-     * Creates new form Crear_peli
+     * Creates new form Crear_Pelicula
      */
-    public Crear_peli() {
+    public Crear_Pelicula(javax.swing.JDialog parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -44,9 +46,9 @@ public class Crear_peli extends javax.swing.JFrame {
         txtCantidad = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        txtdireccionURL = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -73,8 +75,6 @@ public class Crear_peli extends javax.swing.JFrame {
 
         jLabel6.setText("Trailer:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "It" }));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -100,7 +100,7 @@ public class Crear_peli extends javax.swing.JFrame {
                             .addComponent(txtPrecio)
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(txtdireccionURL)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -137,7 +137,7 @@ public class Crear_peli extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdireccionURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addComponent(btnGuardar)
                 .addGap(21, 21, 21))
@@ -156,8 +156,8 @@ public class Crear_peli extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,19 +168,22 @@ public class Crear_peli extends javax.swing.JFrame {
         if (!txtNombre.getText().equals("")) {
             boolean nombre_disponible = ven.Verificar("src/Archivos/Canciones/cat_peliculas.txt", txtNombre.getText());
             if (nombre_disponible) {
-                //Agarrar toda la info y guardarla en el archivo
+                CRUB_Discos crub_disco = new CRUB_Discos();
+                crub_disco.Crear_Disco_Pelicula(txtNombre.getText(),txtAutor.getText()
+                        ,String.valueOf(jComboBox1.getSelectedItem()),Integer.parseInt(txtPrecio.getText()),
+                        Integer.parseInt(txtCantidad.getText()),txtdireccionURL.getText());
             } else {
                 JOptionPane.showMessageDialog(null, "El nombre se encuentra repetido\nPor favor cambielo");
                 txtNombre.setText("");
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Escriba un nombre");
         }
-
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -193,5 +196,6 @@ public class Crear_peli extends javax.swing.JFrame {
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtdireccionURL;
     // End of variables declaration//GEN-END:variables
 }

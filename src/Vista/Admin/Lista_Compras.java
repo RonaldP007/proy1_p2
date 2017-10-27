@@ -14,8 +14,12 @@ public class Lista_Compras extends javax.swing.JDialog {
     /**
      * Creates new form Lista_Compras
      */
-    public Lista_Compras(java.awt.Frame parent, boolean modal) {
+    public boolean tipo_disco = false;
+    public Lista_Compras(java.awt.Frame parent, boolean modal,boolean tipo_cd) {
         super(parent, modal);
+        if(tipo_cd){
+            tipo_disco = true;
+        }
         initComponents();
     }
 
@@ -114,4 +118,5 @@ public class Lista_Compras extends javax.swing.JDialog {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
+
 }

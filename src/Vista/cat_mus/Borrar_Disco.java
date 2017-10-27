@@ -7,14 +7,15 @@ package Vista.cat_mus;
 
 /**
  *
- * @author estudiante
+ * @author Enrique
  */
-public class Eliminar_Disco extends javax.swing.JFrame {
+public class Borrar_Disco extends javax.swing.JDialog {
 
     /**
-     * Creates new form Eliminar
+     * Creates new form Borrar_Disco
      */
-    public Eliminar_Disco() {
+    public Borrar_Disco(javax.swing.JDialog parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -32,8 +33,7 @@ public class Eliminar_Disco extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("CD ");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 

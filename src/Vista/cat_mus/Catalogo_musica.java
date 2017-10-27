@@ -5,6 +5,8 @@
  */
 package Vista.cat_mus;
 
+import javax.swing.JDialog;
+
 /**
  *
  * @author Ronald
@@ -33,8 +35,8 @@ public class Catalogo_musica extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
@@ -50,13 +52,18 @@ public class Catalogo_musica extends javax.swing.JDialog {
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("Crear Disco");
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("Modificar Disco");
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("Modificar Disco");
 
-        buttonGroup1.add(jRadioButton4);
-        jRadioButton4.setText("Borrar Disco");
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setText("Borrar Disco");
 
         jButton1.setText("Iniciar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Seleccione una opcion");
 
@@ -71,9 +78,9 @@ public class Catalogo_musica extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jRadioButton1)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton3)
+                        .addComponent(jRadioButton2)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton4))
+                        .addComponent(jRadioButton3))
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(145, Short.MAX_VALUE))
         );
@@ -85,8 +92,8 @@ public class Catalogo_musica extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4))
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton3))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(55, 55, 55))
@@ -115,6 +122,19 @@ public class Catalogo_musica extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (jRadioButton1.isSelected()) {
+            Crear_Disco cd = new Crear_Disco(new JDialog(), true);
+            cd.setVisible(true);
+        } else if (jRadioButton2.isSelected()) {
+            Modificar_Disco md = new Modificar_Disco(new JDialog(), true);
+            md.setVisible(true);
+        } else {
+            Borrar_Disco eli = new Borrar_Disco(new JDialog(),true);
+            eli.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
@@ -122,7 +142,7 @@ public class Catalogo_musica extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,7 +5,7 @@
  */
 package Codigo;
 
-import Datos.Buscar_Info_Archivo;
+import Codigo_Archivos.Buscar_Info_Archivo;
 
 /**
  *

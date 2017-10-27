@@ -5,7 +5,7 @@
  */
 package Codigo;
 
-import Datos.Reg_Usuari;
+import Codigo_Archivos.Reg_Usuari;
 
 /**
  *

@@ -9,12 +9,13 @@ package Vista.cat_peli;
  *
  * @author Enrique
  */
-public class Modificar_Peli extends javax.swing.JFrame {
+public class Modificar_Pelicula extends javax.swing.JDialog {
 
     /**
-     * Creates new form Modificar_Peli
+     * Creates new form Modificar_Pelicula
      */
-    public Modificar_Peli() {
+    public Modificar_Pelicula(javax.swing.JDialog parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -45,7 +46,7 @@ public class Modificar_Peli extends javax.swing.JFrame {
         txtCantidad = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel7.setText("Seleccione la pelicula para modificar:");
 
@@ -158,7 +159,7 @@ public class Modificar_Peli extends javax.swing.JFrame {
                     .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGuardar))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

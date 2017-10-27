@@ -14,8 +14,12 @@ public class Lista_Preordenes extends javax.swing.JDialog {
     /**
      * Creates new form Lista_Preordenes
      */
-    public Lista_Preordenes(java.awt.Frame parent, boolean modal) {
+    boolean tipo_dico = false;
+    public Lista_Preordenes(java.awt.Frame parent, boolean modal,boolean tipo_cd) {
         super(parent, modal);
+        if(tipo_cd){
+            tipo_dico = true;
+        }
         initComponents();
     }
 

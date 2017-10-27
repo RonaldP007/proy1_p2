@@ -6,6 +6,7 @@
 package Vista;
 
 import Codigo.Codigo_Login;
+import Vista.Admin.Interfaz_Administrador;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -106,14 +107,17 @@ public class Login extends javax.swing.JFrame {
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         Codigo_Login cl = new Codigo_Login();
         ArrayList lista = cl.Verificar(txtUsuario.getText(), String.valueOf(txtPass.getPassword()));
-        if((boolean)lista.get(0)){
-            if(lista.get(1).equals("1")){
-                //usuario o admin
+        
+        if(lista.get(0).equals("0") || lista.get(0).equals("1")){
+            if(lista.get(0).equals("1")){
+                Interfaz_Administrador ia = new Interfaz_Administrador();
+                ia.setVisible(true);
+                this.dispose();
             }else{
-                //usuario o admin
+                //usuario
             }
         }else{
-            JOptionPane.showMessageDialog(null, lista.get(1));
+            JOptionPane.showMessageDialog(null, lista.get(0));
         }
     }//GEN-LAST:event_btnIniciarActionPerformed
 

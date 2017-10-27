@@ -5,21 +5,22 @@
  */
 package Vista.cat_mus;
 
+import Codigo.CRUB_Discos;
 import Codigo.Verificar_En_Archivo;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author estudiante
+ * @author Enrique
  */
-public class Crear_Disco extends javax.swing.JFrame {
+public class Crear_Disco extends javax.swing.JDialog {
 
     /**
-     * Creates new form Crear
+     * Creates new form Crear_Disco1
      */
-    public Crear_Disco() {
+    public Crear_Disco(javax.swing.JDialog parent, boolean modal) {
+        super(parent, modal);
         initComponents();
-        setLocationRelativeTo(null);
     }
 
     /**
@@ -47,8 +48,7 @@ public class Crear_Disco extends javax.swing.JFrame {
         txtCantidad = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Creacion CD");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -60,7 +60,7 @@ public class Crear_Disco extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre:");
 
-        jLabel1.setText("Complete los datos para crear un nuevo disco");
+        jLabel1.setText("Complete los datos para crear un nuevo disco de musica");
 
         jLabel5.setText("Precio:");
 
@@ -115,12 +115,12 @@ public class Crear_Disco extends javax.swing.JFrame {
                                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(161, 161, 161)
-                        .addComponent(btnGuardar)))
-                .addContainerGap(138, Short.MAX_VALUE))
+                        .addComponent(btnGuardar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel1)))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,13 +185,15 @@ public class Crear_Disco extends javax.swing.JFrame {
         if (!txtNombre.getText().equals("")) {
             boolean nombre_disponible = ven.Verificar("src/Archivos/Canciones/cat_musica.txt", txtNombre.getText());
             if (nombre_disponible) {
-                //Agarrar toda la info y guardarla en el archivo
+                CRUB_Discos crub = new CRUB_Discos();
+                crub.Crear_Disco_Musica(txtNombre.getText(),txtAutor.getText(),
+                        String.valueOf(jComboBox1.getSelectedItem()),Integer.parseInt(txtPrecio.getText()),
+                        Integer.parseInt(txtCantidad.getText()),"C:\\Users\\Enrique\\Pictures\\proy1_p2-master\\src\\Archivos\\Canciones\\faded.mp3");
             } else {
                 JOptionPane.showMessageDialog(null, "El nombre se encuentra repetido\nPor favor cambielo");
                 txtNombre.setText("");
             }
         }
-
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

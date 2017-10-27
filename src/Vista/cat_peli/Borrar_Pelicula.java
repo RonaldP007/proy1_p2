@@ -9,12 +9,13 @@ package Vista.cat_peli;
  *
  * @author Enrique
  */
-public class Borrar_Peli extends javax.swing.JFrame {
+public class Borrar_Pelicula extends javax.swing.JDialog {
 
     /**
-     * Creates new form Borrar_Peli
+     * Creates new form Borrar_Pelicula
      */
-    public Borrar_Peli() {
+    public Borrar_Pelicula(javax.swing.JDialog parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -32,7 +33,7 @@ public class Borrar_Peli extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         btnBorrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Seleccione la pelicula para borrar");
 
