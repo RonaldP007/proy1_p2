@@ -8,6 +8,7 @@ package Vista.cat_peli;
 import Codigo.CRUB_Discos;
 import Objetos.Catalogo_Peliculas;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -100,7 +101,12 @@ public class Borrar_Pelicula extends javax.swing.JDialog {
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
         if(!jComboBox1.getSelectedItem().equals("")){
             CRUB_Discos crub_discos = new CRUB_Discos();
-            crub_discos.Verificar_Disco_Pelicula(String.valueOf(jComboBox1.getSelectedItem()),"src/Archivos/Pre_Ordenes_Peliculas.txt");
+            boolean borrado = crub_discos.Verificar_Disco_En_PreOrden(String.valueOf(jComboBox1.getSelectedItem()),"src/Archivos/cat_peliculas.txt","src/Archivos/Pre_Ordenes_Peliculas.txt");
+            if(borrado){
+            JOptionPane.showMessageDialog(null, "Se ha borrado el disco");
+            }else{
+            JOptionPane.showMessageDialog(null, "No se pudo borrar el disco");
+            }
         }
     }//GEN-LAST:event_btnBorrarActionPerformed
 

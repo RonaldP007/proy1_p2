@@ -69,7 +69,7 @@ public class Modificar_Disco extends javax.swing.JDialog {
         txtAutor.setEditable(false);
         txtAutor.setEnabled(false);
 
-        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cumbia", "Rancheras", "Merengue", "Salsa", "Bachata" }));
+        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cumbia", "Rancheras", "Electronica", "Salsa", "Bachata" }));
         cbCategoria.setEnabled(false);
         cbCategoria.setFocusable(false);
 

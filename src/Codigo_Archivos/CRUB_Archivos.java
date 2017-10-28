@@ -73,5 +73,51 @@ public class CRUB_Archivos {
         }
         return lista_de_discos;
     }
+
+    public boolean Verificar_Disco_Repetido_PreOrden(String disco_musica, String dir_archivo) {
+        String line;
+        boolean encontro_repetido = false;
+        try(BufferedReader br = new BufferedReader(new FileReader(dir_archivo))){
+            while((line = br.readLine())!= null){
+                String[] musica = line.split(";");
+                if(disco_musica.equals(musica[0])){
+                    encontro_repetido = true;
+                    break;
+                }
+            }
+        }catch(IOException ex){
+            System.out.println(ex);
+        }
+        return encontro_repetido;
+    }
+
+    public boolean Eliminar_Disco_Musica(ArrayList<Catalogo_Musica> lista_discos, String dir_archivo) {
+        boolean se_borro = false;
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(dir_archivo))){
+            for (Catalogo_Musica disco_musica : lista_discos) {
+                String info_disco_music = disco_musica.getNombre()+";"+disco_musica.getAutor()+";"+disco_musica.getCategoria()+";"
+                +disco_musica.getCantidad_Disponible()+";"+disco_musica.getDireccion_Cancion();
+                bw.write(info_disco_music+System.lineSeparator());
+            }
+            se_borro = true;
+        }catch(IOException ex){
+            System.out.println(ex);
+        }
+        return se_borro;
+    }
+    public boolean Eliminar_Disco_Pelicula(ArrayList<Catalogo_Peliculas> lista_discos, String dir_archivo) {
+        boolean se_borro = false;
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(dir_archivo))){
+            for (Catalogo_Peliculas disco_pelicula : lista_discos) {
+                String info_disco_pelicula = disco_pelicula.getNombre()+";"+disco_pelicula.getAutor()+";"+disco_pelicula.getCategoria()+";"
+                +disco_pelicula.getCantidad_Disponible()+";"+disco_pelicula.getdireccionURL();
+                bw.write(info_disco_pelicula+System.lineSeparator());
+            }
+            se_borro = true;
+        }catch(IOException ex){
+            System.out.println(ex);
+        }
+        return se_borro;
+    }
     
 }

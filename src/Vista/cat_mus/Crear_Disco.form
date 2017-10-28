@@ -23,10 +23,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -187,7 +187,7 @@
               <StringArray count="5">
                 <StringItem index="0" value="Cumbia"/>
                 <StringItem index="1" value="Rancheras"/>
-                <StringItem index="2" value="Merengue"/>
+                <StringItem index="2" value="Electronica"/>
                 <StringItem index="3" value="Salsa"/>
                 <StringItem index="4" value="Bachata"/>
               </StringArray>

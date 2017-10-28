@@ -171,7 +171,7 @@
               <StringArray count="5">
                 <StringItem index="0" value="Cumbia"/>
                 <StringItem index="1" value="Rancheras"/>
-                <StringItem index="2" value="Merengue"/>
+                <StringItem index="2" value="Electronica"/>
                 <StringItem index="3" value="Salsa"/>
                 <StringItem index="4" value="Bachata"/>
               </StringArray>
