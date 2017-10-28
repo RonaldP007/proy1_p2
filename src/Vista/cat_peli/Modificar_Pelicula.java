@@ -5,6 +5,10 @@
  */
 package Vista.cat_peli;
 
+import Codigo.CRUB_Discos;
+import Objetos.Catalogo_Peliculas;
+import java.util.ArrayList;
+
 /**
  *
  * @author Enrique
@@ -14,9 +18,13 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
     /**
      * Creates new form Modificar_Pelicula
      */
+    ArrayList<Catalogo_Peliculas> lista = new ArrayList<>();
     public Modificar_Pelicula(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
+        CRUB_Discos crub_disco = new CRUB_Discos();
+        lista = crub_disco.Buscar_Informacion_de_peliculas();
         initComponents();
+        agregar_pelis_combo();
     }
 
     /**
@@ -31,7 +39,7 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        btnBuscar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -50,7 +58,7 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
 
         jLabel7.setText("Seleccione la pelicula para modificar:");
 
-        btnBuscar.setText("Buscar");
+        btnModificar.setText("Modificar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -65,7 +73,7 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(210, 210, 210)
-                    .addComponent(btnBuscar)
+                    .addComponent(btnModificar)
                     .addContainerGap(210, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -79,7 +87,7 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(40, 40, 40)
-                    .addComponent(btnBuscar)
+                    .addComponent(btnModificar)
                     .addContainerGap(41, Short.MAX_VALUE)))
         );
 
@@ -110,7 +118,7 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
@@ -132,7 +140,7 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -187,8 +195,8 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -205,4 +213,10 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
+
+    private void agregar_pelis_combo() {
+        lista.forEach((pelicula) -> {
+            jComboBox1.addItem(pelicula.getNombre());
+        });
+    }
 }

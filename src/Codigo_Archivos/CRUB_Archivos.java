@@ -7,9 +7,12 @@ package Codigo_Archivos;
 
 import Objetos.Catalogo_Musica;
 import Objetos.Catalogo_Peliculas;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -36,6 +39,39 @@ public class CRUB_Archivos {
         }catch(IOException ex){
             System.out.println(ex);
         }
+    }
+
+    public ArrayList<Catalogo_Peliculas> Buscar_Informacion_Peliculas_Archi() {
+        ArrayList<Catalogo_Peliculas> lista_de_discos = new ArrayList<>();
+        String line;
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Archivos/cat_peliculas.txt"))){
+            while((line = br.readLine())!= null){
+                String[] disco = line.split(";");
+                Catalogo_Peliculas disco_pelicula;
+                disco_pelicula = new Catalogo_Peliculas(disco[0],disco[1],disco[2],
+                        Integer.parseInt(disco[3]),Integer.parseInt(disco[4]),disco[5]);
+                lista_de_discos.add(disco_pelicula);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return lista_de_discos;
+    }
+    public ArrayList<Catalogo_Musica> Buscar_Informacion_Musica_Archi() {
+        ArrayList<Catalogo_Musica> lista_de_discos = new ArrayList<>();
+        String line;
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Archivos/cat_musica.txt"))){
+            while((line = br.readLine())!= null){
+                String[] disco = line.split(";");
+                Catalogo_Musica disco_musica;
+                disco_musica = new Catalogo_Musica(disco[0],disco[1],disco[2],
+                        Integer.parseInt(disco[3]),Integer.parseInt(disco[4]),disco[5]);
+                lista_de_discos.add(disco_musica);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return lista_de_discos;
     }
     
 }

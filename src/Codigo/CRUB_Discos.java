@@ -8,6 +8,7 @@ package Codigo;
 import Codigo_Archivos.CRUB_Archivos;
 import Objetos.Catalogo_Musica;
 import Objetos.Catalogo_Peliculas;
+import java.util.ArrayList;
 
 /**
  *
@@ -26,5 +27,11 @@ public class CRUB_Discos {
         Catalogo_Peliculas disco_pelicula = new Catalogo_Peliculas(nombre,autor,categoria,precio,cantidad,direccionURL);
         CRUB_Archivos crub_archi = new CRUB_Archivos();
         crub_archi.Guardar_Info_Pelicula(disco_pelicula);
+    }
+
+    public ArrayList<Catalogo_Peliculas> Buscar_Informacion_de_peliculas() {
+        CRUB_Archivos crub_archi = new CRUB_Archivos();
+        ArrayList<Catalogo_Peliculas> discos_peliculas = crub_archi.Buscar_Informacion_Peliculas_Archi();
+        return discos_peliculas;
     }
 }
