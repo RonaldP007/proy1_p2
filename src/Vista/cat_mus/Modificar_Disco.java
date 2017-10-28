@@ -55,7 +55,6 @@ public class Modificar_Disco extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        btnModificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -77,6 +76,11 @@ public class Modificar_Disco extends javax.swing.JDialog {
         cbLista.setFocusable(false);
 
         btnGuardar.setText("Guardar Cambios");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Nombre:");
 
@@ -165,10 +169,9 @@ public class Modificar_Disco extends javax.swing.JDialog {
 
         jLabel2.setText("Seleccione un CD musica para modificar");
 
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                jComboBox1ActionPerformed(evt);
             }
         });
 
@@ -180,11 +183,8 @@ public class Modificar_Disco extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnModificar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,10 +192,8 @@ public class Modificar_Disco extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnModificar))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -222,7 +220,16 @@ public class Modificar_Disco extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        Metodos_Para_Ventanas mpv = new Metodos_Para_Ventanas();
+        int Posiscion_Cancion = mpv.Buscar_Objeto_Musica(lista,String.valueOf(jComboBox1.getSelectedItem()));
+        CRUB_Discos crub_discos = new CRUB_Discos();
+        boolean actualizado = crub_discos.Actualizar_Discos_Musica(lista.get(Posiscion_Cancion),
+                Integer.parseInt(txtPrecio.getText()),Integer.parseInt(txtCantidad.getText()));
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         if(!jComboBox1.getSelectedItem().equals("")){
             Metodos_Para_Ventanas mpv = new Metodos_Para_Ventanas();
             int Posiscion_Cancion = mpv.Buscar_Objeto_Musica(lista,String.valueOf(jComboBox1.getSelectedItem()));
@@ -232,11 +239,10 @@ public class Modificar_Disco extends javax.swing.JDialog {
             txtPrecio.setText(String.valueOf(lista.get(Posiscion_Cancion).getPrecio()));
             cbCategoria.setSelectedItem(lista.get(Posiscion_Cancion).getCategoria());
         }
-    }//GEN-LAST:event_btnModificarActionPerformed
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JComboBox<String> cbLista;
     private javax.swing.JComboBox<String> jComboBox1;

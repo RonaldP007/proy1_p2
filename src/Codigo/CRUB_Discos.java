@@ -71,4 +71,21 @@ public class CRUB_Discos {
         }
         return fue_borrado;
     }
+
+    public boolean Actualizar_Discos_Musica(Catalogo_Musica disco_musica, int precio, int cantidad) {
+        disco_musica.setPrecio(precio);
+        disco_musica.setCantidad_Disponible(cantidad);
+        //Enviar a actualizar info y verificar en lista preordenes
+        //El return es provisional
+        return false;
+    }
+
+    public boolean Actualizar_Discos_Pelicula(Catalogo_Peliculas disco_pelicula, int precio, int cantidad,String direccionURL) {
+        disco_pelicula.setPrecio(precio);
+        disco_pelicula.setCantidad_Disponible(cantidad);
+        disco_pelicula.setdireccionURL(direccionURL);
+        //Enviar a actualizar info y verificar en lista preordenes
+        //El return es provisional
+        return false;
+    }
 }

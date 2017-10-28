@@ -40,7 +40,6 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        btnModificar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -59,14 +58,13 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel7.setText("Seleccione la pelicula para modificar:");
-
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                jComboBox1ActionPerformed(evt);
             }
         });
+
+        jLabel7.setText("Seleccione la pelicula para modificar:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -78,11 +76,6 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addContainerGap(111, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(210, 210, 210)
-                    .addComponent(btnModificar)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,11 +85,6 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(40, 40, 40)
-                    .addComponent(btnModificar)
-                    .addContainerGap(41, Short.MAX_VALUE)))
         );
 
         jLabel1.setText("Datos de la pelicula");
@@ -120,6 +108,11 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
         jComboBox2.setFocusable(false);
 
         btnGuardar.setText("Guardar Cambios");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("URL del trailer:");
 
@@ -223,7 +216,7 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         if(!jComboBox1.getSelectedItem().equals("")){
             Metodos_Para_Ventanas mpv = new Metodos_Para_Ventanas();
             int Posiscion_Cancion = mpv.Buscar_Objeto_Pelicula(lista,String.valueOf(jComboBox1.getSelectedItem()));
@@ -235,11 +228,18 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
             txtDireccionURL.setText(lista.get(Posiscion_Cancion).getdireccionURL());
             jComboBox2.setSelectedItem(lista.get(Posiscion_Cancion).getCategoria());
         }
-    }//GEN-LAST:event_btnModificarActionPerformed
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        Metodos_Para_Ventanas mpv = new Metodos_Para_Ventanas();
+        int Posiscion_Cancion = mpv.Buscar_Objeto_Pelicula(lista,String.valueOf(jComboBox1.getSelectedItem()));
+        CRUB_Discos crub_discos = new CRUB_Discos();
+        boolean actualizado = crub_discos.Actualizar_Discos_Pelicula(lista.get(Posiscion_Cancion),
+                Integer.parseInt(txtPrecio.getText()),Integer.parseInt(txtCantidad.getText()),txtDireccionURL.getText());
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;

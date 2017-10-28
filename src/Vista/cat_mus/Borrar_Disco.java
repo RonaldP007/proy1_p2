@@ -109,8 +109,10 @@ public class Borrar_Disco extends javax.swing.JDialog {
             boolean borrado = crub_discos.Verificar_Disco_En_PreOrden(String.valueOf(jComboBox1.getSelectedItem()),"src/Archivos/cat_musica.txt","src/Archivos/Pre_Ordenes_Musica.txt");
             if(borrado){
             JOptionPane.showMessageDialog(null, "Se ha borrado el disco");
+            this.dispose();
             }else{
             JOptionPane.showMessageDialog(null, "No se pudo borrar el disco");
+            this.dispose();
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
