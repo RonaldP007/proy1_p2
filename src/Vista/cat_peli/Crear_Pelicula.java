@@ -73,7 +73,7 @@ public class Crear_Pelicula extends javax.swing.JDialog {
             }
         });
 
-        jLabel6.setText("Trailer:");
+        jLabel6.setText("Trailer URL:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

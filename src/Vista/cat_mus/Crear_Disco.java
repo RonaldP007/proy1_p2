@@ -188,7 +188,7 @@ public class Crear_Disco extends javax.swing.JDialog {
                 CRUB_Discos crub = new CRUB_Discos();
                 crub.Crear_Disco_Musica(txtNombre.getText(),txtAutor.getText(),
                         String.valueOf(jComboBox1.getSelectedItem()),Integer.parseInt(txtPrecio.getText()),
-                        Integer.parseInt(txtCantidad.getText()),"C:\\Users\\Enrique\\Pictures\\proy1_p2-master\\src\\Archivos\\Canciones\\faded.mp3");
+                        Integer.parseInt(txtCantidad.getText()),"src/Archivos/Canciones/faded.mp3");
             } else {
                 JOptionPane.showMessageDialog(null, "El nombre se encuentra repetido\nPor favor cambielo");
                 txtNombre.setText("");
