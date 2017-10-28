@@ -91,7 +91,7 @@ public class CRUB_Archivos {
         return encontro_repetido;
     }
 
-    public boolean Eliminar_Disco_Musica(ArrayList<Catalogo_Musica> lista_discos, String dir_archivo) {
+    public boolean Actualizar_Disco_Musica(ArrayList<Catalogo_Musica> lista_discos, String dir_archivo) {
         boolean se_borro = false;
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(dir_archivo))){
             for (Catalogo_Musica disco_musica : lista_discos) {
@@ -105,7 +105,7 @@ public class CRUB_Archivos {
         }
         return se_borro;
     }
-    public boolean Eliminar_Disco_Pelicula(ArrayList<Catalogo_Peliculas> lista_discos, String dir_archivo) {
+    public boolean Actualizar_Disco_Pelicula(ArrayList<Catalogo_Peliculas> lista_discos, String dir_archivo) {
         boolean se_borro = false;
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(dir_archivo))){
             for (Catalogo_Peliculas disco_pelicula : lista_discos) {
@@ -118,6 +118,5 @@ public class CRUB_Archivos {
             System.out.println(ex);
         }
         return se_borro;
-    }
-    
+    }    
 }

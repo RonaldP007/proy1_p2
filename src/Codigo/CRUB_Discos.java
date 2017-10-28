@@ -57,7 +57,7 @@ public class CRUB_Discos {
                         break;
                     }
                 }
-                fue_borrado = crub_archivos.Eliminar_Disco_Musica(lista, dir_archivo);
+                fue_borrado = crub_archivos.Actualizar_Disco_Musica(lista, dir_archivo);
             } else {
                 ArrayList<Catalogo_Peliculas> lista = crub_archivos.Buscar_Informacion_Peliculas_Archi();
                 for (int i = 0; i < lista.size(); i++) {
@@ -66,7 +66,7 @@ public class CRUB_Discos {
                         break;
                     }
                 }
-                fue_borrado = crub_archivos.Eliminar_Disco_Pelicula(lista, dir_archivo);
+                fue_borrado = crub_archivos.Actualizar_Disco_Pelicula(lista, dir_archivo);
             }
         }
         return fue_borrado;
@@ -75,16 +75,36 @@ public class CRUB_Discos {
     public boolean Actualizar_Discos_Musica(Catalogo_Musica disco_musica, int precio, int cantidad) {
         disco_musica.setPrecio(precio);
         disco_musica.setCantidad_Disponible(cantidad);
-        //Enviar a actualizar info y verificar en lista preordenes
+        CRUB_Archivos crub_archivos = new CRUB_Archivos();
+        ArrayList<Catalogo_Musica> lista = crub_archivos.Buscar_Informacion_Musica_Archi();
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getNombre().equals(disco_musica.getNombre())) {
+                lista.remove(i);
+                lista.add(disco_musica);
+                break;
+            }
+        }
+        crub_archivos.Actualizar_Disco_Musica(lista,"src/Archivos/cat_musica.txt");
+        //verificar en lista preordenes puede enviar el objeto
         //El return es provisional
         return false;
     }
 
-    public boolean Actualizar_Discos_Pelicula(Catalogo_Peliculas disco_pelicula, int precio, int cantidad,String direccionURL) {
+    public boolean Actualizar_Discos_Pelicula(Catalogo_Peliculas disco_pelicula, int precio, int cantidad, String direccionURL) {
         disco_pelicula.setPrecio(precio);
         disco_pelicula.setCantidad_Disponible(cantidad);
         disco_pelicula.setdireccionURL(direccionURL);
-        //Enviar a actualizar info y verificar en lista preordenes
+        CRUB_Archivos crub_archivos = new CRUB_Archivos();
+        ArrayList<Catalogo_Peliculas> lista = crub_archivos.Buscar_Informacion_Peliculas_Archi();
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getNombre().equals(disco_pelicula.getNombre())) {
+                lista.remove(i);
+                lista.add(disco_pelicula);
+                break;
+            }
+        }
+        crub_archivos.Actualizar_Disco_Pelicula(lista,"src/Archivos/cat_musica.txt");
+        //verificar en lista preordenes puede enviar el objeto
         //El return es provisional
         return false;
     }
