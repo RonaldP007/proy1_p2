@@ -227,7 +227,7 @@ public class Modificar_Disco extends javax.swing.JDialog {
         CRUB_Discos crub_discos = new CRUB_Discos();
         boolean actualizado = crub_discos.Actualizar_Discos_Musica(lista.get(Posiscion_Cancion),
                 Integer.parseInt(txtPrecio.getText()),Integer.parseInt(txtCantidad.getText()));
-        
+        this.dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

@@ -96,7 +96,7 @@ public class CRUB_Archivos {
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(dir_archivo))){
             for (Catalogo_Musica disco_musica : lista_discos) {
                 String info_disco_music = disco_musica.getNombre()+";"+disco_musica.getAutor()+";"+disco_musica.getCategoria()+";"
-                +disco_musica.getCantidad_Disponible()+";"+disco_musica.getDireccion_Cancion();
+                +disco_musica.getPrecio()+";"+disco_musica.getCantidad_Disponible()+";"+disco_musica.getDireccion_Cancion();
                 bw.write(info_disco_music+System.lineSeparator());
             }
             se_borro = true;
@@ -110,7 +110,7 @@ public class CRUB_Archivos {
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(dir_archivo))){
             for (Catalogo_Peliculas disco_pelicula : lista_discos) {
                 String info_disco_pelicula = disco_pelicula.getNombre()+";"+disco_pelicula.getAutor()+";"+disco_pelicula.getCategoria()+";"
-                +disco_pelicula.getCantidad_Disponible()+";"+disco_pelicula.getdireccionURL();
+                +disco_pelicula.getPrecio()+";"+disco_pelicula.getCantidad_Disponible()+";"+disco_pelicula.getdireccionURL();
                 bw.write(info_disco_pelicula+System.lineSeparator());
             }
             se_borro = true;

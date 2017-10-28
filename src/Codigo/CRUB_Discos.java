@@ -103,7 +103,7 @@ public class CRUB_Discos {
                 break;
             }
         }
-        crub_archivos.Actualizar_Disco_Pelicula(lista,"src/Archivos/cat_musica.txt");
+        crub_archivos.Actualizar_Disco_Pelicula(lista,"src/Archivos/cat_peliculas.txt");
         //verificar en lista preordenes puede enviar el objeto
         //El return es provisional
         return false;

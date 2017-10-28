@@ -237,6 +237,7 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
         CRUB_Discos crub_discos = new CRUB_Discos();
         boolean actualizado = crub_discos.Actualizar_Discos_Pelicula(lista.get(Posiscion_Cancion),
                 Integer.parseInt(txtPrecio.getText()),Integer.parseInt(txtCantidad.getText()),txtDireccionURL.getText());
+        this.dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

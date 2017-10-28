@@ -1,1 +1,2 @@
-Faded;Alan Walker;Rancheras;1000;28;src/Archivos/Canciones/faded.mp3
+It;Warner Bros;Terror;1000;30;www.youtube.com
+Fast and Furious;Blizzard;1000;Accion;50;www.youtube.com
