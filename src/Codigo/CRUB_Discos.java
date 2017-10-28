@@ -34,4 +34,15 @@ public class CRUB_Discos {
         ArrayList<Catalogo_Peliculas> discos_peliculas = crub_archi.Buscar_Informacion_Peliculas_Archi();
         return discos_peliculas;
     }
+    public ArrayList<Catalogo_Musica> Buscar_Informacion_de_Musica() {
+        CRUB_Archivos crub_archi = new CRUB_Archivos();
+        ArrayList<Catalogo_Musica> discos_musica = crub_archi.Buscar_Informacion_Musica_Archi();
+        return discos_musica;
+    }
+    public void Verificar_Disco_Musica(String disco_musica,String dir_archivo){
+        //verificar en pre ordenes
+    }
+    public void Verificar_Disco_Pelicula(String disco_musica,String dir_archivo){
+        //verificar en pre ordenes
+    }
 }

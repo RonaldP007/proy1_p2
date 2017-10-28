@@ -5,6 +5,10 @@
  */
 package Vista.cat_mus;
 
+import Codigo.CRUB_Discos;
+import Objetos.Catalogo_Musica;
+import java.util.ArrayList;
+
 /**
  *
  * @author Enrique
@@ -14,9 +18,13 @@ public class Borrar_Disco extends javax.swing.JDialog {
     /**
      * Creates new form Borrar_Disco
      */
+    ArrayList<Catalogo_Musica> lista = new ArrayList<>();
     public Borrar_Disco(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
+        CRUB_Discos crub_disco = new CRUB_Discos();
+        lista = crub_disco.Buscar_Informacion_de_Musica();
         initComponents();
+        agregar_musica_combo();
     }
 
     /**
@@ -40,6 +48,11 @@ public class Borrar_Disco extends javax.swing.JDialog {
         jLabel3.setText("Seleccione el CD a eliminar");
 
         jButton1.setText("Borrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -89,10 +102,23 @@ public class Borrar_Disco extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(!jComboBox1.getSelectedItem().equals("")){
+            CRUB_Discos crub_discos = new CRUB_Discos();
+            crub_discos.Verificar_Disco_Musica(String.valueOf(jComboBox1.getSelectedItem()),"src/Archivos/Pre_Ordenes_Musica.txt");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
+
+    private void agregar_musica_combo() {
+        lista.forEach((musica) -> {
+            jComboBox1.addItem(musica.getNombre());
+        });
+    }
 }

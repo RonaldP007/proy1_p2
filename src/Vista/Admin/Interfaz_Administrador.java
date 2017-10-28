@@ -39,8 +39,8 @@ public class Interfaz_Administrador extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
-        btnselec = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
+        btnAbrir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,14 +65,14 @@ public class Interfaz_Administrador extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton5);
         jRadioButton5.setText("Reportes");
 
-        btnselec.setText("Abrir ");
-        btnselec.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setText("Seleccione una opcion:");
+
+        btnAbrir.setText("Abrir");
+        btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnselecActionPerformed(evt);
+                btnAbrirActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("Seleccione una opcion:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,8 +81,8 @@ public class Interfaz_Administrador extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAbrir)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnselec)
                     .addComponent(jRadioButton5)
                     .addComponent(jRadioButton3)
                     .addComponent(jRadioButton2)
@@ -105,9 +105,9 @@ public class Interfaz_Administrador extends javax.swing.JFrame {
                 .addComponent(jRadioButton4)
                 .addGap(18, 18, 18)
                 .addComponent(jRadioButton5)
-                .addGap(27, 27, 27)
-                .addComponent(btnselec)
-                .addGap(47, 47, 47))
+                .addGap(18, 18, 18)
+                .addComponent(btnAbrir)
+                .addGap(56, 56, 56))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -134,7 +134,7 @@ public class Interfaz_Administrador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnselecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnselecActionPerformed
+    private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
         if (jRadioButton1.isSelected()) {
             Catalogo_musica cm = new Catalogo_musica(this, true);
             cm.setVisible(true);
@@ -163,10 +163,10 @@ public class Interfaz_Administrador extends javax.swing.JFrame {
             //reportes
         }
 
-    }//GEN-LAST:event_btnselecActionPerformed
+    }//GEN-LAST:event_btnAbrirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnselec;
+    private javax.swing.JButton btnAbrir;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

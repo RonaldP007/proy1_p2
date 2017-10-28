@@ -5,18 +5,27 @@
  */
 package Vista.cat_peli;
 
+import Codigo.CRUB_Discos;
+import Objetos.Catalogo_Peliculas;
+import java.util.ArrayList;
+
 /**
  *
  * @author Enrique
  */
+
 public class Borrar_Pelicula extends javax.swing.JDialog {
 
     /**
      * Creates new form Borrar_Pelicula
      */
+    ArrayList<Catalogo_Peliculas> lista = new ArrayList<>();
     public Borrar_Pelicula(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
+        CRUB_Discos crub_disco = new CRUB_Discos();
+        lista = crub_disco.Buscar_Informacion_de_peliculas();
         initComponents();
+        agregar_pelis_combo();
     }
 
     /**
@@ -89,7 +98,10 @@ public class Borrar_Pelicula extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
-        // TODO add your handling code here:
+        if(!jComboBox1.getSelectedItem().equals("")){
+            CRUB_Discos crub_discos = new CRUB_Discos();
+            crub_discos.Verificar_Disco_Pelicula(String.valueOf(jComboBox1.getSelectedItem()),"src/Archivos/Pre_Ordenes_Peliculas.txt");
+        }
     }//GEN-LAST:event_btnBorrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -98,4 +110,10 @@ public class Borrar_Pelicula extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    private void agregar_pelis_combo() {
+        lista.forEach((pelicula) -> {
+            jComboBox1.addItem(pelicula.getNombre());
+        });
+    }
 }
