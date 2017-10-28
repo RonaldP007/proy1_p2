@@ -21,6 +21,7 @@ public class Lista_Preordenes extends javax.swing.JDialog {
             tipo_dico = true;
         }
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

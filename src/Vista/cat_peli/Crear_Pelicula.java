@@ -21,6 +21,7 @@ public class Crear_Pelicula extends javax.swing.JDialog {
     public Crear_Pelicula(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

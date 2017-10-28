@@ -21,6 +21,7 @@ public class Interfaz_Administrador extends javax.swing.JFrame {
      */
     public Interfaz_Administrador() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

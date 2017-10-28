@@ -26,6 +26,7 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
         lista = crub_disco.Buscar_Informacion_de_peliculas();
         initComponents();
         agregar_pelis_combo();
+        this.setLocationRelativeTo(null);
     }
 
     /**

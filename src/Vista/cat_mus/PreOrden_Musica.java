@@ -17,6 +17,7 @@ public class PreOrden_Musica extends javax.swing.JDialog {
     public PreOrden_Musica(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

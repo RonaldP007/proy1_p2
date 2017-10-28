@@ -19,7 +19,7 @@ public class Catalogo_musica extends javax.swing.JDialog {
     public Catalogo_musica(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
 
     /**

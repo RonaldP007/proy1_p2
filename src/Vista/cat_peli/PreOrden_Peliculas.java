@@ -17,6 +17,7 @@ public class PreOrden_Peliculas extends javax.swing.JDialog {
     public PreOrden_Peliculas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

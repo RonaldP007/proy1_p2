@@ -21,6 +21,7 @@ public class Lista_Compras extends javax.swing.JDialog {
             tipo_disco = true;
         }
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

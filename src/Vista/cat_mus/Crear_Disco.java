@@ -21,6 +21,7 @@ public class Crear_Disco extends javax.swing.JDialog {
     public Crear_Disco(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

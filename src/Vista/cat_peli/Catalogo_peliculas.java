@@ -19,6 +19,7 @@ public class Catalogo_peliculas extends javax.swing.JDialog {
     public Catalogo_peliculas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

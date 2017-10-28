@@ -20,7 +20,7 @@ public class Registro_Usuarios extends javax.swing.JFrame {
      */
     public Registro_Usuarios() {
         initComponents();
-        setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -136,8 +136,8 @@ public class Registro_Usuarios extends javax.swing.JFrame {
         } else {
             if (disp == true & esp == false) {
                 cod.Guard_Usu(txtReg_Usu.getText(), txtfReg_Pass.getText(), txtReg_ced.getText(), txtReg_correo.getText());
-                
                 evc.SendMail("proyecto1p2tienda@gmail.com", "UTN2017UTN", "Gracias por registrarse en nuestra tienda", txtReg_correo.getText(), "Registro Exitoso");
+                this.dispose();
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -26,6 +26,7 @@ public class Borrar_Disco extends javax.swing.JDialog {
         lista = crub_disco.Buscar_Informacion_de_Musica();
         initComponents();
         agregar_musica_combo();
+        this.setLocationRelativeTo(null);
     }
 
     /**
