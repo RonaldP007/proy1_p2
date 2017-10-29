@@ -1,2 +1,1 @@
-It;Warner Bros;Terror;1000;30;www.youtube.com
-Fast and Furious;Blizzard;1000;Accion;50;www.youtube.com
+Fast and Furious;Blizzard;Electronica;1000;50;www.youtube.com

@@ -1,2 +1,2 @@
 Fast and Furious;Blizzard;Accion;1000;30;www.youtube.com
-It;Warner Bros;Terror;1500;25;www.youtube.com
+It;Warner Bros;Terror;1500;60;www.youtube.com
