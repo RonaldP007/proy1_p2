@@ -118,5 +118,22 @@ public class CRUB_Archivos {
             System.out.println(ex);
         }
         return se_borro;
-    }    
+    }  
+    
+    public ArrayList<String> Envio_Disco_Actualizar(String nombre_Disco, String dir_archivo) {
+        String line;
+        ArrayList<String> Lista_datos = new ArrayList();
+        try (BufferedReader br = new BufferedReader(new FileReader(dir_archivo))) {
+            while((line = br.readLine())!= null){
+                String[] PreOrdenes = line.split(";");
+                if(nombre_Disco.equals(PreOrdenes[1])){
+                    Lista_datos.add(PreOrdenes[3]);
+                    Lista_datos.add(PreOrdenes[4]);
+                }
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        return Lista_datos;
+    }
 }

@@ -86,8 +86,9 @@ public class CRUB_Discos {
         }
         crub_archivos.Actualizar_Disco_Musica(lista,"src/Archivos/cat_musica.txt");
         //verificar en lista preordenes puede enviar el objeto
+        //boolean correo = Lista_enviar_mod_disco_mus(nombre_cd, precio);
         //El return es provisional
-        return false;
+        return true;
     }
 
     public boolean Actualizar_Discos_Pelicula(Catalogo_Peliculas disco_pelicula, int precio, int cantidad, String direccionURL) {
@@ -105,7 +106,68 @@ public class CRUB_Discos {
         }
         crub_archivos.Actualizar_Disco_Pelicula(lista,"src/Archivos/cat_peliculas.txt");
         //verificar en lista preordenes puede enviar el objeto
+        
         //El return es provisional
         return false;
+    }
+    public boolean Lista_enviar_mod_disco_mus(String nombre_disco, int precio) {
+        boolean registro = false;
+        CRUB_Archivos info = new CRUB_Archivos();
+        Envios_correos envio = new Envios_correos();
+        ArrayList<String> lista = info.Envio_Disco_Actualizar(nombre_disco, "src/Archivos/Pre_Ordenes_Musica.txt");
+        ArrayList<String> lista_correos = new ArrayList();
+        ArrayList<Integer> lista_cant_preord = new ArrayList();
+        ArrayList<Integer> lista_total = new ArrayList();
+        int total;
+        if (lista != null) {
+            
+            for (int s = 0; s < lista.size(); s++) {
+                if (s % 2 == 0) {
+                    lista_correos.add(lista.get(s));
+                } else {
+                    lista_cant_preord.add(Integer.parseInt(lista.get(s)));
+                }
+            }
+            for (int t = 0; t < lista_cant_preord.size(); t++) {
+                total = lista_cant_preord.get(t) * precio;
+                lista_total.add(total);
+            }
+
+            for (int i = 0; i < lista_correos.size(); i++) {
+                registro = true;
+                envio.SendMail("proyecto1p2tienda@gmail.com", "UTN2017UTN", "Le informamos ya tenemos en existencias el disco que usted preordeno, Nombre: " + nombre_disco + ", Cantidad: " + lista_cant_preord.get(i) + ", Tipo: Musica" + ", Total de PreOrden: " + lista_total.get(i) + " Gracias", lista_correos.get(i), "Tienda M Y P");
+            }
+        }
+        return registro;
+    }
+     public boolean Lista_enviar_mod_disco_pel(String nombre_disco, int precio) {
+        boolean registro = false;
+        CRUB_Archivos info = new CRUB_Archivos();
+        Envios_correos envio = new Envios_correos();
+        ArrayList<String> lista = info.Envio_Disco_Actualizar(nombre_disco, "src/Archivos/Pre_Ordenes_Peliculas.txt");
+        ArrayList<String> lista_correos = new ArrayList();
+        ArrayList<Integer> lista_cant_preord = new ArrayList();
+        ArrayList<Integer> lista_total = new ArrayList();
+        int total;
+        if (lista != null) {
+            
+            for (int s = 0; s < lista.size(); s++) {
+                if (s % 2 == 0) {
+                    lista_correos.add(lista.get(s));
+                } else {
+                    lista_cant_preord.add(Integer.parseInt(lista.get(s)));
+                }
+            }
+            for (int t = 0; t < lista_cant_preord.size(); t++) {
+                total = lista_cant_preord.get(t) * precio;
+                lista_total.add(total);
+            }
+
+            for (int i = 0; i < lista_correos.size(); i++) {
+                registro = true;
+                envio.SendMail("proyecto1p2tienda@gmail.com", "UTN2017UTN", "Le informamos ya tenemos en existencias la pelicula que usted preordeno, Nombre: " + nombre_disco + ", Cantidad: " + lista_cant_preord.get(i) + ", Tipo: Pelicula" + ", Total de PreOrden: " + lista_total.get(i) + " Gracias", lista_correos.get(i), "Tienda M Y P");
+            }
+        }
+        return registro;
     }
 }

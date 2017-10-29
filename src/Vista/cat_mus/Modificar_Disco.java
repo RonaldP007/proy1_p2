@@ -223,11 +223,17 @@ public class Modificar_Disco extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+
         Metodos_Para_Ventanas mpv = new Metodos_Para_Ventanas();
         int Posiscion_Cancion = mpv.Buscar_Objeto_Musica(lista,String.valueOf(jComboBox1.getSelectedItem()));
         CRUB_Discos crub_discos = new CRUB_Discos();
         boolean actualizado = crub_discos.Actualizar_Discos_Musica(lista.get(Posiscion_Cancion),
                 Integer.parseInt(txtPrecio.getText()),Integer.parseInt(txtCantidad.getText()));
+        boolean env_cor = crub_discos.Lista_enviar_mod_disco_mus(txtNombre.getText(), Integer.parseInt(txtPrecio.getText()));
+         JOptionPane.showMessageDialog(null, "Se ha modificado el disco");
+        if(env_cor == true){
+            JOptionPane.showMessageDialog(null, "Se han enviado los correos de las preordenes registradas a ese disco");
+        }
         this.dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
 

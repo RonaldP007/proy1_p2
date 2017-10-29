@@ -36,7 +36,7 @@ public class Envios_correos {
             message.setText(mensaje);
 
             Transport.send(message);
-            JOptionPane.showMessageDialog(null, "Registro Exitoso, se ha enviado un correo de verificacion a su buzon");
+            //JOptionPane.showMessageDialog(null, "Registro Exitoso, se ha enviado un correo de verificacion a su buzon");
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);

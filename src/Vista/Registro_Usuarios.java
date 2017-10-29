@@ -137,6 +137,8 @@ public class Registro_Usuarios extends javax.swing.JFrame {
             if (disp == true & esp == false) {
                 cod.Guard_Usu(txtReg_Usu.getText(), txtfReg_Pass.getText(), txtReg_ced.getText(), txtReg_correo.getText());
                 evc.SendMail("proyecto1p2tienda@gmail.com", "UTN2017UTN", "Gracias por registrarse en nuestra tienda", txtReg_correo.getText(), "Registro Exitoso");
+                JOptionPane.showMessageDialog(null, "Se ha enviado un correo de registro exitoso");
+
                 this.dispose();
             }
         }

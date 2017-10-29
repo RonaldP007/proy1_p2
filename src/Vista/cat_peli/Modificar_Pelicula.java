@@ -9,6 +9,7 @@ import Codigo.CRUB_Discos;
 import Codigo.Metodos_Para_Ventanas;
 import Objetos.Catalogo_Peliculas;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -237,6 +238,11 @@ public class Modificar_Pelicula extends javax.swing.JDialog {
         CRUB_Discos crub_discos = new CRUB_Discos();
         boolean actualizado = crub_discos.Actualizar_Discos_Pelicula(lista.get(Posiscion_Cancion),
                 Integer.parseInt(txtPrecio.getText()),Integer.parseInt(txtCantidad.getText()),txtDireccionURL.getText());
+         boolean env_cor = crub_discos.Lista_enviar_mod_disco_pel(txtNombre.getText(), Integer.parseInt(txtPrecio.getText()));
+         JOptionPane.showMessageDialog(null, "Se ha modificado la pelicula");
+        if(env_cor == true){
+            JOptionPane.showMessageDialog(null, "Se han enviado los correos de las preordenes registradas a esa pelicula");
+        }
         this.dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
