@@ -1,3 +1,3 @@
-Fast and Furious;Blizzard;Accion;1000;31;www.youtube.com
-It;Warner Bros;Terror;1500;55;www.youtube.com
-El exorcista;Blizzard;Accion;1000;10;www.youtube.com
+Fast and Furious 8;F. Gary Gray;Accion;1000;31;www.youtube.com/watch?v=HPegOXvd1NE
+It;Andrés Muschietti;Terror;3000;505;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
+El exorcista;William Friedkin;Accion;1000;10;www.youtube.com/watch?v=5NH3ffAp9aA

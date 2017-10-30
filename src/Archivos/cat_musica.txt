@@ -1,2 +1,2 @@
-Faded;Blizzard;Electronica;1500;31;www.youtube.com
-Fast and Furious;Blizzard;Electronica;1000;50;www.youtube.com
+Para Siempre;Vicente Fernandez;Ranchera;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
+Sale el sol;Shakira;Electronica;1500;600;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
