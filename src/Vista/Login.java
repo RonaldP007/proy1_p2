@@ -175,7 +175,9 @@ public class Login extends javax.swing.JFrame {
                 ia.setVisible(true);
                 this.dispose();
             }else{
-                //usuario
+                Ventana_Usuario vu = new Ventana_Usuario();
+                vu.setVisible(true);
+                this.dispose();
             }
         }else{
             JOptionPane.showMessageDialog(null, lista.get(0));
