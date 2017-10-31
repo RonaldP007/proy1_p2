@@ -45,6 +45,7 @@ public class Borrar_Pelicula extends javax.swing.JDialog {
         btnBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Borrar Pelicula");
 
         jLabel1.setText("Seleccione la pelicula para borrar");
 
