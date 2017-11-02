@@ -6,8 +6,17 @@
 package Vista;
 
 import Codigo.Control_Musica_Web;
+import Codigo.Metodos_Para_Ventanas;
 import Codigo.Modelo_Tabla;
+import Codigo_Archivos.CRUB_Archivos;
+import Objetos.Catalogo_Musica;
+import Objetos.Catalogo_Peliculas;
+import Objetos.Dato_Compras;
+import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Enrique
@@ -17,11 +26,20 @@ public class Ventana_Usuario extends javax.swing.JFrame {
     /**
      * Creates new form Ventana_Usuario
      */
+    String[] usuario;
+    public static ArrayList<Dato_Compras> discos_para_comprar = new ArrayList();
+    ArrayList<Catalogo_Musica> discos_musica = new ArrayList<>();
+    ArrayList<Catalogo_Peliculas> discos_pelicula = new ArrayList<>();
     Control_Musica_Web control = new Control_Musica_Web();
     Modelo_Tabla tabla = new Modelo_Tabla();
-    public Ventana_Usuario() {
+
+    public Ventana_Usuario(String[] usuario) {
         initComponents();
         Actualizar_Table();
+        this.usuario = usuario;
+        CRUB_Archivos crub_archivos = new CRUB_Archivos();
+        discos_pelicula = crub_archivos.Buscar_Informacion_Peliculas_Archi();
+        discos_musica = crub_archivos.Buscar_Informacion_Musica_Archi();
     }
 
     /**
@@ -137,7 +155,7 @@ public class Ventana_Usuario extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -146,6 +164,11 @@ public class Ventana_Usuario extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        Tabla_Compras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tabla_ComprasMouseClicked(evt);
             }
         });
         jScrollPane3.setViewportView(Tabla_Compras);
@@ -289,23 +312,35 @@ public class Ventana_Usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        Login lg =new Login();
+        Login lg = new Login();
         lg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void Tabla_MusicaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabla_MusicaMouseClicked
+        Metodos_Para_Ventanas mpv = new Metodos_Para_Ventanas();
+        Modelo_Tabla mt = new Modelo_Tabla();
         int columna = Tabla_Musica.getColumnModel().getColumnIndexAtX(evt.getX());
-        int fila = evt.getY()/Tabla_Musica.getRowHeight();
-        if(fila < Tabla_Musica.getRowCount() && fila >= 0 && columna < Tabla_Musica.getColumnCount() && columna >= 0){
+        int cantidad = 1;
+        int fila = evt.getY() / Tabla_Musica.getRowHeight();
+        if (fila < Tabla_Musica.getRowCount() && fila >= 0 && columna < Tabla_Musica.getColumnCount() && columna >= 0) {
             Object value = Tabla_Musica.getValueAt(fila, columna);
-            if (value instanceof JButton){
-                ((JButton)value).doClick();
+            if (value instanceof JButton) {
+                ((JButton) value).doClick();
                 JButton boton = (JButton) value;
-                //Agregar a Carrito
-                if(boton.getName().equals("agregar")){
-                    System.out.println("Agregar al carrito");
-                }else {
+                if (boton.getName().equals("agregar")) {
+                    String disco = mt.Obtener_Disco(Tabla_Musica, Tabla_Musica.getSelectedRow());
+                    try {
+                        cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la cantidad deseada: "));
+                        int posicion = mpv.Buscar_Objeto_Musica(discos_musica, disco);
+                        DefaultTableModel modelo = mt.Actualizar_Tabla_Compras_Musica(Tabla_Compras, (Catalogo_Musica) discos_musica.get(posicion), usuario, cantidad);
+                        Tabla_Compras.setModel(modelo);
+                    } catch (NumberFormatException ex) {
+                        System.out.println(ex);
+                        JOptionPane.showMessageDialog(null, "No ingresastes un numero");
+                    }
+
+                } else {
                     control.Play(boton.getName());
                 }
             }
@@ -317,20 +352,30 @@ public class Ventana_Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void Tabla_PeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabla_PeliculasMouseClicked
+        Metodos_Para_Ventanas mpv = new Metodos_Para_Ventanas();
+        Modelo_Tabla mt = new Modelo_Tabla();
         int columna = Tabla_Peliculas.getColumnModel().getColumnIndexAtX(evt.getX());
-        int fila = evt.getY()/Tabla_Peliculas.getRowHeight();
-        if(fila < Tabla_Peliculas.getRowCount() && fila >= 0 && columna < Tabla_Peliculas.getColumnCount() && columna >= 0){
+        int cantidad = 1;
+        int fila = evt.getY() / Tabla_Peliculas.getRowHeight();
+        if (fila < Tabla_Peliculas.getRowCount() && fila >= 0 && columna < Tabla_Peliculas.getColumnCount() && columna >= 0) {
             Object value = Tabla_Peliculas.getValueAt(fila, columna);
-            if (value instanceof JButton){
-                ((JButton)value).doClick();
+            if (value instanceof JButton) {
+                ((JButton) value).doClick();
                 JButton boton = (JButton) value;
-                if(boton.getName().equals("agregar")){
-                    //Agregar al Carrito
-                    System.out.println("Agregar al carrito");
-                }else{
+                if (boton.getName().equals("agregar")) {
+                    String disco = mt.Obtener_Disco(Tabla_Peliculas, Tabla_Peliculas.getSelectedRow());
+                    try {
+                        cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la cantidad deseada: "));
+                        int posicion = mpv.Buscar_Objeto_Pelicula(discos_pelicula, disco);
+                        DefaultTableModel modelo = mt.Actualizar_Tabla_Compras_Peliculas(Tabla_Compras, (Catalogo_Peliculas) discos_pelicula.get(posicion), usuario, cantidad);
+                        Tabla_Compras.setModel(modelo);
+                    } catch (NumberFormatException ex) {
+                        System.out.println(ex);
+                        JOptionPane.showMessageDialog(null, "No ingresastes un numero");
+                    }
+                } else {
                     control.Ver_Trailer(boton.getName());
                 }
-                
 
             }
         }
@@ -339,6 +384,20 @@ public class Ventana_Usuario extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         control.Stop();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void Tabla_ComprasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabla_ComprasMouseClicked
+        Modelo_Tabla mt = new Modelo_Tabla();
+        String disco = mt.Obtener_Disco(Tabla_Compras, Tabla_Compras.getSelectedRow());
+        int result = JOptionPane.showConfirmDialog(null,
+                "¿Quieres eliminar "+disco+" de tu lista compras?", null, JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+            DefaultTableModel modelo = (DefaultTableModel) Tabla_Compras.getModel();
+            modelo.removeRow(Tabla_Compras.getSelectedRow());
+            DefaultTableModel modelo_nuevo = mt.Eliminar_Objeto_Compra(disco, Tabla_Compras);
+            Tabla_Compras.setModel(modelo_nuevo);
+        }
+
+    }//GEN-LAST:event_Tabla_ComprasMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelMusica;
@@ -363,10 +422,20 @@ public class Ventana_Usuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtBuscador;
     private javax.swing.JTextField txtBuscador1;
     // End of variables declaration//GEN-END:variables
-    
-    private void Actualizar_Table(){
+
+    private void Actualizar_Table() {
         tabla.Modelo_Tabla_Pelicula(Tabla_Peliculas);
         tabla.Modelo_Tabla_Musica(Tabla_Musica);
     }
-    
+
+    private void actualizar_tabla_compras() {
+        Modelo_Tabla mt = new Modelo_Tabla();
+        try {
+            DefaultTableModel modelo = mt.Limpiar_Tabla(Tabla_Compras);
+            Tabla_Compras.setModel(modelo);
+            //agregar el nuevo objeto
+        } catch (Exception ex) {
+            System.out.println("Se despicho\n" + ex);
+        }
+    }
 }

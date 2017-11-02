@@ -7,6 +7,8 @@ package Codigo;
 
 import Objetos.Catalogo_Musica;
 import Objetos.Catalogo_Peliculas;
+import Objetos.Dato_Compras;
+import Vista.Ventana_Usuario;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JTable;
@@ -74,6 +76,7 @@ public class Modelo_Tabla {
         Object[][] informacion_discos = new Object[lista_peliculas.size()][7];
         for (int i = 0; i < lista_peliculas.size(); i++) {
             JButton btnAgregar = new JButton("Agregar Carrito");
+            btnAgregar.setName("agregar");
             JButton btnVerTrailer = new JButton("Ver Trailer");
             btnVerTrailer.setName(lista_peliculas.get(i).getdireccionURL());
             informacion_discos[i][0] = lista_peliculas.get(i).getNombre();
@@ -85,5 +88,65 @@ public class Modelo_Tabla {
             informacion_discos[i][6] = btnAgregar;
         }
         return informacion_discos;
+    }
+
+    public String Obtener_Disco(JTable tabla, int row) {
+        String nombre_disco =(String) tabla.getValueAt(row, 0);
+        return nombre_disco;
+    }
+    public DefaultTableModel Limpiar_Tabla(JTable Tabla_Compras){
+        DefaultTableModel modelo = (DefaultTableModel) Tabla_Compras.getModel();
+            int filas = Tabla_Compras.getRowCount();
+            for (int i = 0; i < filas; i++) {
+                modelo.removeRow(0);
+            }
+            return modelo;
+    }
+
+    public DefaultTableModel Actualizar_Tabla_Compras_Musica(JTable Tabla_Compras, Catalogo_Musica disco_musica,String[] usuario,int cantidad) {
+        Dato_Compras dato;
+        Object[] objeto;
+        dato = new Dato_Compras(usuario[0],Integer.parseInt(usuario[2]),usuario[3], disco_musica.getNombre(), (disco_musica.getPrecio()*cantidad), cantidad, "musica","");
+        Ventana_Usuario.discos_para_comprar.add(dato);
+        DefaultTableModel modelo = Limpiar_Tabla(Tabla_Compras);
+        for(int i = 0; i < Ventana_Usuario.discos_para_comprar.size(); i++){
+            objeto = new Object[]{Ventana_Usuario.discos_para_comprar.get(i).getNombre_Articulo(),
+            Ventana_Usuario.discos_para_comprar.get(i).getPrecio(),
+            Ventana_Usuario.discos_para_comprar.get(i).getCantidad_Comprado()};
+            modelo.addRow(objeto);
+        }
+        return modelo;
+    }
+    public DefaultTableModel Actualizar_Tabla_Compras_Peliculas(JTable Tabla_Compras, Catalogo_Peliculas disco_pelicula,String[] usuario,int cantidad) {
+        Dato_Compras dato;
+        Object[] objeto;
+        dato = new Dato_Compras(usuario[0],Integer.parseInt(usuario[2]),usuario[3], disco_pelicula.getNombre(), (disco_pelicula.getPrecio()*cantidad), cantidad, "pelicula","");
+        Ventana_Usuario.discos_para_comprar.add(dato);
+        DefaultTableModel modelo = Limpiar_Tabla(Tabla_Compras);
+        for(int i = 0; i < Ventana_Usuario.discos_para_comprar.size(); i++){
+            objeto = new Object[]{Ventana_Usuario.discos_para_comprar.get(i).getNombre_Articulo(),
+            Ventana_Usuario.discos_para_comprar.get(i).getPrecio(),
+            Ventana_Usuario.discos_para_comprar.get(i).getCantidad_Comprado()};
+            modelo.addRow(objeto);
+        }
+        return modelo;
+    }
+
+    public DefaultTableModel Eliminar_Objeto_Compra(String disco, JTable Tabla_Compras) {
+        Object[] objeto;
+        DefaultTableModel modelo = Limpiar_Tabla(Tabla_Compras);
+        for(int i = 0; i < Ventana_Usuario.discos_para_comprar.size(); i++){
+         if(Ventana_Usuario.discos_para_comprar.get(i).getNombre_Articulo().equals(disco)){
+             Ventana_Usuario.discos_para_comprar.remove(i);
+             break;
+         }
+        }
+        for(int i = 0; i < Ventana_Usuario.discos_para_comprar.size(); i++){
+            objeto = new Object[]{Ventana_Usuario.discos_para_comprar.get(i).getNombre_Articulo(),
+            Ventana_Usuario.discos_para_comprar.get(i).getPrecio(),
+            Ventana_Usuario.discos_para_comprar.get(i).getCantidad_Comprado()};
+            modelo.addRow(objeto);
+        }
+        return modelo;
     }
 }

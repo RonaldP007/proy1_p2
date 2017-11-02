@@ -7,8 +7,10 @@ package Codigo;
 
 import Objetos.Catalogo_Musica;
 import Objetos.Catalogo_Peliculas;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Date;
 /**
  *
  * @author Enrique
@@ -36,5 +38,9 @@ public class Metodos_Para_Ventanas {
         }
         return posicion;
     }
-
+    public String Obtener_Fecha(){
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
 }
