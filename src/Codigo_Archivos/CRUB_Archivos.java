@@ -22,7 +22,7 @@ public class CRUB_Archivos {
 
     public void Guardar_Info_Musica(Catalogo_Musica disco_musica) {
         String info_disco_music = disco_musica.getNombre()+";"+disco_musica.getAutor()+";"+disco_musica.getCategoria()+";"
-                +disco_musica.getCantidad_Disponible()+";"+disco_musica.getDireccion_Cancion();
+                 +disco_musica.getPrecio()+";"+disco_musica.getCantidad_Disponible()+";"+disco_musica.getDireccion_Cancion();
         try(BufferedWriter bw = new BufferedWriter(new FileWriter("src/Archivos/cat_musica.txt", true))){
             bw.write(info_disco_music+System.lineSeparator());
         }catch(IOException ex){

@@ -7,6 +7,7 @@ package Vista.cat_mus;
 
 import Codigo.CRUB_Discos;
 import Codigo.Verificar_En_Archivo;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -73,8 +74,26 @@ public class Crear_Disco extends javax.swing.JDialog {
 
         jLabel5.setText("Precio:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 194, 75, 23));
+
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 78, 122, -1));
+
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 195, 122, -1));
+
+        txtAutor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAutorKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 115, 122, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cumbia", "Rancheras", "Electronica", "Salsa", "Bachata" }));
@@ -89,6 +108,11 @@ public class Crear_Disco extends javax.swing.JDialog {
         txtCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCantidadActionPerformed(evt);
+            }
+        });
+        txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadKeyTyped(evt);
             }
         });
         jPanel1.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 280, 62, -1));
@@ -133,19 +157,62 @@ public class Crear_Disco extends javax.swing.JDialog {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Verificar_En_Archivo ven = new Verificar_En_Archivo();
-        if (!txtNombre.getText().equals("")) {
-            boolean nombre_disponible = ven.Verificar("src/Archivos/Canciones/cat_musica.txt", txtNombre.getText());
-            if (nombre_disponible) {
+        boolean nombre_disponible = ven.Verificar("src/Archivos/cat_musica.txt", txtNombre.getText());
+        if (txtNombre.getText().equals("") || txtAutor.getText().equals("") || txtPrecio.getText().equals("") || txtCantidad.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "No pueden haber casillas vacias");
+        } else {
+
+            if (nombre_disponible == true) {
                 CRUB_Discos crub = new CRUB_Discos();
-                crub.Crear_Disco_Musica(txtNombre.getText(),txtAutor.getText(),
-                        String.valueOf(jComboBox1.getSelectedItem()),Integer.parseInt(txtPrecio.getText()),
-                        Integer.parseInt(txtCantidad.getText()),"src/Archivos/Canciones/faded.mp3");
-            } else {
+                crub.Crear_Disco_Musica(txtNombre.getText(), txtAutor.getText(),
+                        String.valueOf(jComboBox1.getSelectedItem()), Integer.parseInt(txtPrecio.getText()),
+                        Integer.parseInt(txtCantidad.getText()), "src/Archivos/Canciones/faded Alan Walker(electronica).mp3");
+                JOptionPane.showMessageDialog(null, "Se ha creado el disco");
+                this.dispose();
+            }
+            if (nombre_disponible != true) {
                 JOptionPane.showMessageDialog(null, "El nombre se encuentra repetido\nPor favor cambielo");
                 txtNombre.setText("");
             }
         }
+
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // TODO add your handling code here:
+        char tecla;
+        tecla = evt.getKeyChar();
+
+        if (!Character.isLetter(tecla) && tecla != KeyEvent.VK_SPACE && tecla != KeyEvent.VK_BACK_SPACE) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtAutorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAutorKeyTyped
+        // TODO add your handling code here:
+        char tecla;
+        tecla = evt.getKeyChar();
+        if (!Character.isLetter(tecla) && tecla != KeyEvent.VK_SPACE && tecla != KeyEvent.VK_BACK_SPACE) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtAutorKeyTyped
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+        if (((caracter < '0') || (caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+                 && (caracter !='.')&& (caracter != ',')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtPrecioKeyTyped
+
+    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+                if(((caracter < '0') || (caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)){
+                evt.consume();
+                }
+    }//GEN-LAST:event_txtCantidadKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;

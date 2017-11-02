@@ -77,10 +77,11 @@ public class Catalogo_peliculas extends javax.swing.JDialog {
         });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 102));
+        jLabel3.setBackground(new java.awt.Color(204, 204, 255));
         jLabel3.setText("Seleccione una opcion");
         jLabel3.setToolTipText("");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 226, 21));
+        jLabel3.setOpaque(true);
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 226, 21));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pel3.jpg"))); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 210));
