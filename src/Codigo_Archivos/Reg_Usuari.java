@@ -42,7 +42,7 @@ public class Reg_Usuari {
     public void guardar_usuario(String txtReg_Usu, String txtReg_Pass, String txtReg_ced, String txtReg_correo) {
 
         try {
-            String datos = txtReg_Usu + ";" + txtReg_Pass + ";" + txtReg_ced + ";" + txtReg_correo + ";" + "1";
+            String datos = txtReg_Usu + ";" + txtReg_Pass + ";" + txtReg_ced + ";" + txtReg_correo + ";" + "0";
             File archivo = new File("src/Archivos/cuentas.txt");
             FileWriter escribir = new FileWriter(archivo, true);
             escribir.write(datos + System.lineSeparator());

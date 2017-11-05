@@ -57,8 +57,8 @@ public class Buscar_Info_Archivo {
         try (BufferedReader br = new BufferedReader(new FileReader("src/Archivos/cat_musica.txt"))) {
             while ((line = br.readLine()) != null) {
                 String[] info_disco = line.split(";");
-                    if (info_disco[2].equals(genero)) {
-                        Lista_datos_nombre_genero.add(info_disco[0]);
+                if (info_disco[2].equals(genero)) {
+                    Lista_datos_nombre_genero.add(info_disco[0]);
                 }
             }
         } catch (IOException ex) {
@@ -75,7 +75,7 @@ public class Buscar_Info_Archivo {
             while ((line = br.readLine()) != null) {
                 String[] info_disco_compra = line.split(";");
                 for (int s = 0; s < Lista_nombre.size(); s++) {
-                    if(Lista_nombre.get(s).equals(info_disco_compra[3])){
+                    if (Lista_nombre.get(s).equals(info_disco_compra[3])) {
                         Lista_datos_compras.add(info_disco_compra[3]);
                         Lista_datos_compras.add(info_disco_compra[5]);
                     }
@@ -86,14 +86,15 @@ public class Buscar_Info_Archivo {
         }
         return Lista_datos_compras;
     }
-     public ArrayList<String> Info_Disco_Pel_Rep4(String genero) {
+
+    public ArrayList<String> Info_Disco_Pel_Rep4(String genero) {
         String line;
         ArrayList<String> Lista_datos_nombre_genero = new ArrayList();
         try (BufferedReader br = new BufferedReader(new FileReader("src/Archivos/cat_peliculas.txt"))) {
             while ((line = br.readLine()) != null) {
                 String[] info_disco = line.split(";");
-                    if (info_disco[2].equals(genero)) {
-                        Lista_datos_nombre_genero.add(info_disco[0]);
+                if (info_disco[2].equals(genero)) {
+                    Lista_datos_nombre_genero.add(info_disco[0]);
                 }
             }
         } catch (IOException ex) {
@@ -110,7 +111,7 @@ public class Buscar_Info_Archivo {
             while ((line = br.readLine()) != null) {
                 String[] info_disco_compra = line.split(";");
                 for (int s = 0; s < Lista_nombre.size(); s++) {
-                    if(Lista_nombre.get(s).equals(info_disco_compra[3])){
+                    if (Lista_nombre.get(s).equals(info_disco_compra[3])) {
                         Lista_datos_compras.add(info_disco_compra[3]);
                         Lista_datos_compras.add(info_disco_compra[5]);
                     }
@@ -120,5 +121,37 @@ public class Buscar_Info_Archivo {
             System.out.println(ex);
         }
         return Lista_datos_compras;
+    }
+
+    public ArrayList<String> Infousu_Disco_Mus_Rep2(String nombre) {
+        String line;
+        ArrayList<String> Lista_datos_nombre_genero = new ArrayList();
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Archivos/Compra_Musica.txt"))) {
+            while ((line = br.readLine()) != null) {
+                String[] info_disco = line.split(";");
+                if (info_disco[0].equals(nombre)) {
+                    Lista_datos_nombre_genero.add(info_disco[3]);
+                    Lista_datos_nombre_genero.add(info_disco[5]);
+                }
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        return Lista_datos_nombre_genero;
+    }
+
+    public ArrayList<String> Info_Disco_Mus_Can_Gen() {
+        String line;
+        ArrayList<String> Lista_datos_nombre_genero = new ArrayList();
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Archivos/cat_musica.txt"))) {
+            while ((line = br.readLine()) != null) {
+                String[] info_disco = line.split(";");
+                Lista_datos_nombre_genero.add(info_disco[0]);
+                Lista_datos_nombre_genero.add(info_disco[2]);
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        return Lista_datos_nombre_genero;
     }
 }
