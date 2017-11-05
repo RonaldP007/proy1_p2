@@ -470,7 +470,6 @@ public class Ventana_Usuario extends javax.swing.JFrame {
         if (compras_realizadas) {
             JOptionPane.showMessageDialog(null, "Gracias por su compra");
             CRUB_Archivos crub_archivos = new CRUB_Archivos();
-            //enviarlo por crub_discos
             discos_pelicula = crub_archivos.Buscar_Informacion_Peliculas_Archi();
             discos_musica = crub_archivos.Buscar_Informacion_Musica_Archi();
             discos_para_comprar.clear();

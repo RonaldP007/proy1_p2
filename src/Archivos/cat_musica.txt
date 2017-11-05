@@ -6,6 +6,6 @@ Nube;Pedro;Rancheras;2000;200;src/Archivos/Canciones/faded Alan Walker(electroni
 Agua;Pedro;Electronica;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
 Sol;Pedro;Cumbia;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
 Tierra;Pedro;Salsa;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
-Viento;Pedro;Salsa;2000;150;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
+Viento;Pedro;Salsa;2000;100;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
 Arena;Pedro;Cumbia;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
 Cielo;Pedro;Bachata;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3

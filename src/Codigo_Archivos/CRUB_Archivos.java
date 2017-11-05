@@ -143,18 +143,30 @@ public class CRUB_Archivos {
 
     public boolean Agregar_PreOrden_Y_Compra(ArrayList<Dato_Compras> lista_preorden, ArrayList<Dato_Compras> lista_comprados) {
         boolean registrados = false;
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/Archivos/Compras_Discos.txt",true))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/Archivos/Compra_Musica.txt", true))) {
             for (Dato_Compras disco_comprado : lista_comprados) {
-                String info_disco_comprado = disco_comprado.getNombre() + ";" + disco_comprado.getCedula() + ";" + disco_comprado.getCorreo()
-                        + ";" + disco_comprado.getNombre_Articulo() + ";" + disco_comprado.getPrecio() + ";" + disco_comprado.getCantidad_Comprado()
-                        + ";" + disco_comprado.getTipo_Articulo() + ";" + disco_comprado.getFecha();
-                bw.write(info_disco_comprado + System.lineSeparator());
+                if (disco_comprado.getTipo_Articulo().equals("musica")) {
+                    String info_disco_comprado = disco_comprado.getNombre() + ";" + disco_comprado.getCedula() + ";" + disco_comprado.getCorreo()
+                            + ";" + disco_comprado.getNombre_Articulo() + ";" + disco_comprado.getPrecio() + ";" + disco_comprado.getCantidad_Comprado()
+                            + ";" + disco_comprado.getTipo_Articulo() + ";" + disco_comprado.getFecha();
+                    bw.write(info_disco_comprado + System.lineSeparator());
+                } else {
+                    try (BufferedWriter bw1 = new BufferedWriter(new FileWriter("src/Archivos/Compra_Peliculas.txt", true))) {
+                        String info_disco_comprado = disco_comprado.getNombre() + ";" + disco_comprado.getCedula() + ";" + disco_comprado.getCorreo()
+                                + ";" + disco_comprado.getNombre_Articulo() + ";" + disco_comprado.getPrecio() + ";" + disco_comprado.getCantidad_Comprado()
+                                + ";" + disco_comprado.getTipo_Articulo() + ";" + disco_comprado.getFecha();
+                        bw1.write(info_disco_comprado + System.lineSeparator());
+                    } catch (IOException ex) {
+                        System.out.println(ex);
+                    }
+                }
+
             }
             registrados = true;
         } catch (IOException ex) {
             System.out.println(ex);
         }
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/Archivos/Pre_Ordenes_Musica.txt",true))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/Archivos/Pre_Ordenes_Musica.txt", true))) {
             for (Dato_Compras disco_preordenado : lista_preorden) {
                 if (disco_preordenado.getTipo_Articulo().equals("musica")) {
                     String info_disco_preordenado = disco_preordenado.getNombre()
@@ -163,12 +175,12 @@ public class CRUB_Archivos {
                             + ";" + disco_preordenado.getCorreo() + ";" + disco_preordenado.getCantidad_Comprado();
                     bw.write(info_disco_preordenado + System.lineSeparator());
                 } else {
-                    try (BufferedWriter bw1 = new BufferedWriter(new FileWriter("src/Archivos/Pre_Ordenes_Peliculas.txt",true))) {
+                    try (BufferedWriter bw1 = new BufferedWriter(new FileWriter("src/Archivos/Pre_Ordenes_Peliculas.txt", true))) {
                         String info_disco_preordenado = disco_preordenado.getNombre()
-                            + ";" + disco_preordenado.getNombre_Articulo()
-                            + ";" + disco_preordenado.getTipo_Articulo()
-                            + ";" + disco_preordenado.getCorreo() + ";" + disco_preordenado.getCantidad_Comprado();
-                    bw1.write(info_disco_preordenado + System.lineSeparator());
+                                + ";" + disco_preordenado.getNombre_Articulo()
+                                + ";" + disco_preordenado.getTipo_Articulo()
+                                + ";" + disco_preordenado.getCorreo() + ";" + disco_preordenado.getCantidad_Comprado();
+                        bw1.write(info_disco_preordenado + System.lineSeparator());
                     } catch (IOException ex) {
                         System.out.println(ex);
                     }
