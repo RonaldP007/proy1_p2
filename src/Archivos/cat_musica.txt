@@ -1,2 +1,11 @@
 Sale el sol;Shakira;Electronica;1500;600;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
-Para Siempre;Vicente Fernandez;Ranchera;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
+Para Siempre;Vicente Fernandez;Rancheras;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
+Nunca;Pedro;Rancheras;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
+Luna;Pedro;Bachata;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
+Nube;Pedro;Rancheras;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
+Agua;Pedro;Electronica;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
+Sol;Pedro;Cumbia;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
+Tierra;Pedro;Salsa;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
+Viento;Pedro;Salsa;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
+Arena;Pedro;Cumbia;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3
+Cielo;Pedro;Bachata;2000;200;src/Archivos/Canciones/faded Alan Walker(electronica).mp3

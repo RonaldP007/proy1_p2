@@ -5,6 +5,7 @@
  */
 package Vista.Admin;
 
+import Reportes.Reportes;
 import Vista.Login;
 import Vista.cat_mus.Catalogo_musica;
 import Vista.cat_peli.Catalogo_peliculas;
@@ -167,7 +168,8 @@ public class Interfaz_Administrador extends javax.swing.JFrame {
                 lc.setVisible(true);
             }
         } else {
-            //reportes
+            Reportes rep = new Reportes(this, true);
+            rep.setVisible(true);
         }
 
     }//GEN-LAST:event_btnAbrirActionPerformed

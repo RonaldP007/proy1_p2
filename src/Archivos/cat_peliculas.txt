@@ -1,3 +1,12 @@
 Fast and Furious 8;F. Gary Gray;Accion;1000;31;www.youtube.com/watch?v=HPegOXvd1NE
 It;Andrés Muschietti;Terror;3000;505;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
 El exorcista;asad;Terror;120;120;www
+Lento y Miedoso;F. Gary Gray;Accion;1000;31;www.youtube.com/watch?v=HPegOXvd1NE
+Jack;Andrés Muschietti;Fantasia;3000;505;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
+Elena;asad;Fantasia;120;120;www
+Aro;F. Gary Gray;Ciencia Ficcion;1000;31;www.youtube.com/watch?v=HPegOXvd1NE
+Señales;Andrés Muschietti;Ciencia Ficcion;3000;505;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
+Black Men;Andrés Muschietti;Accion;3000;505;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
+Matrix;Andrés Muschietti;Accion;3000;505;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
+Saw;Andrés Muschietti;Comedia;3000;505;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
+America;Andrés Muschietti;Comedia;3000;505;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
