@@ -6,12 +6,14 @@
 package Vista;
 
 import Codigo.Control_Musica_Web;
+import Codigo.Metodos_Compras;
 import Codigo.Metodos_Para_Ventanas;
 import Codigo.Modelo_Tabla;
 import Codigo_Archivos.CRUB_Archivos;
 import Objetos.Catalogo_Musica;
 import Objetos.Catalogo_Peliculas;
 import Objetos.Dato_Compras;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -35,11 +37,13 @@ public class Ventana_Usuario extends javax.swing.JFrame {
 
     public Ventana_Usuario(String[] usuario) {
         initComponents();
-        Actualizar_Table();
+        Actualizar_Tabla();
+        txtBuscador1.setEnabled(false);
         this.usuario = usuario;
         CRUB_Archivos crub_archivos = new CRUB_Archivos();
         discos_pelicula = crub_archivos.Buscar_Informacion_Peliculas_Archi();
         discos_musica = crub_archivos.Buscar_Informacion_Musica_Archi();
+        Colocar_Precio();
     }
 
     /**
@@ -74,6 +78,11 @@ public class Ventana_Usuario extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         PanelMusica.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -181,6 +190,16 @@ public class Ventana_Usuario extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 26)); // NOI18N
         jButton1.setText("Comprar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -215,8 +234,18 @@ public class Ventana_Usuario extends javax.swing.JFrame {
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre Disco", "Autor", "Categoria", "Cancion", "Precio" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         txtBuscador.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtBuscador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscadorKeyReleased(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -242,6 +271,11 @@ public class Ventana_Usuario extends javax.swing.JFrame {
         );
 
         txtBuscador1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtBuscador1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscador1KeyReleased(evt);
+            }
+        });
 
         jMenu1.setText("Cerrar Sesion");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -339,7 +373,7 @@ public class Ventana_Usuario extends javax.swing.JFrame {
                         System.out.println(ex);
                         JOptionPane.showMessageDialog(null, "No ingresastes un numero");
                     }
-
+                    Colocar_Precio();
                 } else {
                     control.Play(boton.getName());
                 }
@@ -373,6 +407,7 @@ public class Ventana_Usuario extends javax.swing.JFrame {
                         System.out.println(ex);
                         JOptionPane.showMessageDialog(null, "No ingresastes un numero");
                     }
+                    Colocar_Precio();
                 } else {
                     control.Ver_Trailer(boton.getName());
                 }
@@ -389,15 +424,72 @@ public class Ventana_Usuario extends javax.swing.JFrame {
         Modelo_Tabla mt = new Modelo_Tabla();
         String disco = mt.Obtener_Disco(Tabla_Compras, Tabla_Compras.getSelectedRow());
         int result = JOptionPane.showConfirmDialog(null,
-                "¿Quieres eliminar "+disco+" de tu lista compras?", null, JOptionPane.YES_NO_OPTION);
+                "¿Quieres eliminar " + disco + " de tu lista compras?", null, JOptionPane.YES_NO_OPTION);
         if (result == JOptionPane.YES_OPTION) {
             DefaultTableModel modelo = (DefaultTableModel) Tabla_Compras.getModel();
             modelo.removeRow(Tabla_Compras.getSelectedRow());
             DefaultTableModel modelo_nuevo = mt.Eliminar_Objeto_Compra(disco, Tabla_Compras);
             Tabla_Compras.setModel(modelo_nuevo);
+            Colocar_Precio();
         }
 
     }//GEN-LAST:event_Tabla_ComprasMouseClicked
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        if (jComboBox1.getSelectedItem().equals("Precio")) {
+            txtBuscador1.setEnabled(true);
+            txtBuscador.setText("");
+        } else {
+            txtBuscador1.setEnabled(false);
+            txtBuscador1.setText("");
+            txtBuscador.setText("");
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void txtBuscadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscadorKeyReleased
+        if (jComboBox1.getSelectedItem().equals("Precio")) {
+            char caracter = evt.getKeyChar();
+            if (((caracter < '0') || (caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)) {
+                evt.consume();
+            }
+        }
+        Actualizar_Tabla();
+    }//GEN-LAST:event_txtBuscadorKeyReleased
+
+    private void txtBuscador1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscador1KeyReleased
+        char caracter = evt.getKeyChar();
+        if (((caracter < '0') || (caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+        }
+        Actualizar_Tabla();
+    }//GEN-LAST:event_txtBuscador1KeyReleased
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        Metodos_Compras mc = new Metodos_Compras();
+        boolean compras_realizadas = mc.Realizando_Compras_Peliculas_Musica(discos_pelicula, discos_musica);
+        if (compras_realizadas) {
+            JOptionPane.showMessageDialog(null, "Gracias por su compra");
+            CRUB_Archivos crub_archivos = new CRUB_Archivos();
+            //enviarlo por crub_discos
+            discos_pelicula = crub_archivos.Buscar_Informacion_Peliculas_Archi();
+            discos_musica = crub_archivos.Buscar_Informacion_Musica_Archi();
+            discos_para_comprar.clear();
+            Modelo_Tabla mt = new Modelo_Tabla();
+            mt.Modelo_Tabla_Musica(Tabla_Musica, "", "0", "0");
+            mt.Modelo_Tabla_Pelicula(Tabla_Peliculas, "", "0", "0");
+            DefaultTableModel modelo = mt.Limpiar_Tabla(Tabla_Compras);
+            Tabla_Compras.setModel(modelo);
+            Colocar_Precio();
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        Colocar_Precio();
+    }//GEN-LAST:event_formMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelMusica;
@@ -423,19 +515,14 @@ public class Ventana_Usuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtBuscador1;
     // End of variables declaration//GEN-END:variables
 
-    private void Actualizar_Table() {
-        tabla.Modelo_Tabla_Pelicula(Tabla_Peliculas);
-        tabla.Modelo_Tabla_Musica(Tabla_Musica);
+    private void Actualizar_Tabla() {
+        tabla.Modelo_Tabla_Pelicula(Tabla_Peliculas, (String) jComboBox1.getSelectedItem(), txtBuscador.getText(), txtBuscador1.getText());
+        tabla.Modelo_Tabla_Musica(Tabla_Musica, (String) jComboBox1.getSelectedItem(), txtBuscador.getText(), txtBuscador1.getText());
     }
 
-    private void actualizar_tabla_compras() {
-        Modelo_Tabla mt = new Modelo_Tabla();
-        try {
-            DefaultTableModel modelo = mt.Limpiar_Tabla(Tabla_Compras);
-            Tabla_Compras.setModel(modelo);
-            //agregar el nuevo objeto
-        } catch (Exception ex) {
-            System.out.println("Se despicho\n" + ex);
-        }
+    private void Colocar_Precio() {
+        Metodos_Compras mt = new Metodos_Compras();
+        int costo = mt.Costo_Total(discos_para_comprar);
+        lblTotal.setText(String.valueOf(costo));
     }
 }
