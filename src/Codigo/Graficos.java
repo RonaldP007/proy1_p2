@@ -2,6 +2,7 @@ package Codigo;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -65,10 +66,11 @@ public class Graficos {
 
         panel.removeAll();
         ChartPanel chartpanel = new ChartPanel(chart);
-        chartpanel.setBounds(10, 10,454, 342);
+        chartpanel.setBounds(10, 10, 454, 342);
         panel.add(chartpanel);
         panel.repaint();
     }
+
     public void graficar_rep4(String genero, JPanel panel) {
         Codigo_Reportes cr = new Codigo_Reportes();
         ArrayList<String> lista_compra_total = cr.cod_rep4(genero);
@@ -96,7 +98,70 @@ public class Graficos {
 
         panel.removeAll();
         ChartPanel chartpanel = new ChartPanel(chart);
-        chartpanel.setBounds(10, 10,454, 342);
+        chartpanel.setBounds(10, 10, 454, 342);
+        panel.add(chartpanel);
+        panel.repaint();
+    }
+
+    public void graficar_rep2(JPanel panel,JComboBox combo) {
+        Codigo_Reportes cr = new Codigo_Reportes();
+        ArrayList<String> Lista_lista_max = cr.rep2_tod_max(combo);
+        ArrayList<String> Lista_totales = new ArrayList();
+        DefaultPieDataset data = new DefaultPieDataset();
+        for (int i = 0; i < Lista_lista_max.size(); i+=3) {
+            if (!Lista_lista_max.get(i).equals("Sin Nombre")) {
+                Lista_totales.add(Lista_lista_max.get(i));
+                Lista_totales.add(Lista_lista_max.get(i+1));
+                Lista_totales.add(Lista_lista_max.get(i+2));
+            }
+            
+        }
+        for (int j = 0; j < Lista_totales.size(); j+=3) {
+            data.setValue(Lista_totales.get(j), Integer.parseInt(Lista_totales.get(j+1)));
+        }
+
+        // Creando el Grafico
+        JFreeChart chart = ChartFactory.createPieChart(
+                "Compras Usuario Discos Musica\n ",
+                data,
+                true,
+                true,
+                true);
+
+        panel.removeAll();
+        ChartPanel chartpanel = new ChartPanel(chart);
+        chartpanel.setBounds(10, 10, 454, 342);
+        panel.add(chartpanel);
+        panel.repaint();
+    }
+    public void graficar_rep5(JPanel panel,JComboBox combo) {
+        Codigo_Reportes cr = new Codigo_Reportes();
+        ArrayList<String> Lista_lista_max = cr.rep2_tod_max_pel(combo);
+        ArrayList<String> Lista_totales = new ArrayList();
+        DefaultPieDataset data = new DefaultPieDataset();
+        for (int i = 0; i < Lista_lista_max.size(); i+=3) {
+            if (!Lista_lista_max.get(i).equals("Sin Nombre")) {
+                Lista_totales.add(Lista_lista_max.get(i));
+                Lista_totales.add(Lista_lista_max.get(i+1));
+                Lista_totales.add(Lista_lista_max.get(i+2));
+            }
+            
+        }
+        for (int j = 0; j < Lista_totales.size(); j+=3) {
+            data.setValue(Lista_totales.get(j), Integer.parseInt(Lista_totales.get(j+1)));
+        }
+
+        // Creando el Grafico
+        JFreeChart chart = ChartFactory.createPieChart(
+                "Compras Usuario Discos Musica\n ",
+                data,
+                true,
+                true,
+                true);
+
+        panel.removeAll();
+        ChartPanel chartpanel = new ChartPanel(chart);
+        chartpanel.setBounds(10, 10, 454, 342);
         panel.add(chartpanel);
         panel.repaint();
     }

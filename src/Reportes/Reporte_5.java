@@ -7,19 +7,18 @@ package Reportes;
 
 import Codigo.Codigo_Reportes;
 import Codigo.Graficos;
-import Codigo_Archivos.Buscar_Info_Archivo;
 import java.util.ArrayList;
 
 /**
  *
  * @author Ronald
  */
-public class Reporte_2 extends javax.swing.JDialog {
+public class Reporte_5 extends javax.swing.JDialog {
 
     /**
-     * Creates new form Reporte_2
+     * Creates new form Reporte_5
      */
-    public Reporte_2(java.awt.Frame parent, boolean modal) {
+    public Reporte_5(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         cargar_combo();
@@ -47,7 +46,7 @@ public class Reporte_2 extends javax.swing.JDialog {
         txtArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Reporte 2");
+        setTitle("Reporte 5");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -106,7 +105,7 @@ public class Reporte_2 extends javax.swing.JDialog {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 355, Short.MAX_VALUE)
+            .addGap(0, 348, Short.MAX_VALUE)
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -163,8 +162,8 @@ public class Reporte_2 extends javax.swing.JDialog {
         Graficos rep1 = new Graficos();
         jPanel3.setVisible(true);
         txtArea.setText("");
-        ArrayList<String> Lista_lista_max = cr.rep2_tod_max(jComboBox1);
-        
+        ArrayList<String> Lista_lista_max = cr.rep2_tod_max_pel(jComboBox1);
+
         for (int i = 0; i < Lista_lista_max.size(); i += 3) {
             if (!Lista_lista_max.get(i).equals("Sin Nombre")) {
                 Lista_totales.add(Lista_lista_max.get(i));
@@ -172,14 +171,14 @@ public class Reporte_2 extends javax.swing.JDialog {
                 Lista_totales.add(Lista_lista_max.get(i + 2));
             }
         }
-            for (int j = 0; j < Lista_totales.size(); j += 3) {
-                String inf = txtArea.getText();
-                txtArea.setText(inf + "Nombre: " + Lista_totales.get(j) + ", Cantidad: " + Lista_totales.get(j + 1) + " Genero: " + Lista_totales.get(j + 2) + "\n");
-            }
-            rep1.graficar_rep2(jPanel2, jComboBox1);
-        
-        // System.out.println(lista_info_usu);
+        for (int j = 0; j < Lista_totales.size(); j += 3) {
+            String inf = txtArea.getText();
+            txtArea.setText(inf + "Nombre: " + Lista_totales.get(j) + ", Cantidad: " + Lista_totales.get(j + 1) + " Genero: " + Lista_totales.get(j + 2) + "\n");
+        }
+        rep1.graficar_rep5(jPanel2, jComboBox1);
+
     }//GEN-LAST:event_btn1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
@@ -196,7 +195,7 @@ public class Reporte_2 extends javax.swing.JDialog {
 
     public void cargar_combo() {
         Codigo_Reportes cr = new Codigo_Reportes();
-        ArrayList<String> lista_usuarios = cr.rep2_combo_usu_mus();
+        ArrayList<String> lista_usuarios = cr.rep2_combo_usu_pel();
         for (int i = 0; i < lista_usuarios.size(); i++) {
             jComboBox1.addItem(lista_usuarios.get(i));
         }

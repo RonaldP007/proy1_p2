@@ -11,6 +11,7 @@ Luis;22222;gmail;Saw;2000;9;musica;22/10/2017
 Luis;22222;gmail;Black Men;2000;19;musica;22/10/2017
 Luis;22222;gmail;Matrix;2000;6;musica;22/10/2017
 Luis;22222;gmail;America;2000;7;musica;22/10/2017
-cc;207800655;ddssds@gmail.com;Lento y Miedoso;1000;1;pelicula;05/11/2017
-cc;207800655;ddssds@gmail.com;Fast and Furious 8;1000;1;pelicula;05/11/2017
-cc;207800655;ddssds@gmail.com;Jack;6000;2;pelicula;05/11/2017
+cc;207800655;ddssds@gmail.com;Lento y Miedoso;1000;17;pelicula;05/11/2017
+cc;207800655;ddssds@gmail.com;Fast and Furious 8;1000;114;pelicula;05/11/2017
+cc;207800655;ddssds@gmail.com;Jack;6000;12;pelicula;05/11/2017
+cc;207800655;ddssds@gmail.com;It;6000;20;pelicula;05/11/2017
