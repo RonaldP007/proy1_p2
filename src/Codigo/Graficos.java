@@ -1,7 +1,9 @@
 package Codigo;
 
+import Objetos.Dato_Compras;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -156,6 +158,36 @@ public class Graficos {
         // Creando el Grafico
         JFreeChart chart = ChartFactory.createPieChart(
                 "Compras Usuario Discos Musica\n ",
+                data,
+                true,
+                true,
+                true);
+
+        panel.removeAll();
+        ChartPanel chartpanel = new ChartPanel(chart);
+        chartpanel.setBounds(10, 10, 454, 342);
+        panel.add(chartpanel);
+        panel.repaint();
+    }
+    public void graficar_rep3(JPanel panel,String fecha1,String fecha2) {
+        Codigo_Reportes cr= new Codigo_Reportes();
+        ArrayList<Dato_Compras> lista =cr.rep3(fecha1, fecha2,"src/Archivos/Compra_Musica.txt");
+        DefaultPieDataset data = new DefaultPieDataset();
+        for (Iterator<Dato_Compras> iterator = lista.iterator(); iterator.hasNext();) {
+            Dato_Compras next = iterator.next();
+            //System.out.println(next.getCantidad_Comprado());
+           // System.out.println(next.getNombre_Articulo());
+           data.setValue(next.getNombre_Articulo(),next.getCantidad_Comprado());
+           
+        }
+        
+      //  for (int j = 0; j < Lista_totales.size(); j+=3) {
+      //      data.setValue(Lista_totales.get(j), Integer.parseInt(Lista_totales.get(j+1)));
+       // }
+
+        // Creando el Grafico
+        JFreeChart chart = ChartFactory.createPieChart(
+                "Ventas x Fecha x Discos Musica\n ",
                 data,
                 true,
                 true,

@@ -318,7 +318,7 @@ public class Codigo_Reportes {
         for (Dato_Compras dato : lista_discos) {
             String[] fecha = dato.getFecha().split("/");
             LocalDate fecha_disco = LocalDate.of(Integer.parseInt(fecha[2]), Integer.parseInt(fecha[1]), Integer.parseInt(fecha[0]));
-            if (fecha_disco.isAfter(fecha_minima) && fecha_disco.isBefore(fecha_maxima)) {
+            if((fecha_disco.isAfter(fecha_minima)||fecha_disco.isEqual(fecha_minima)) && (fecha_disco.isBefore(fecha_maxima) || fecha_disco.isEqual(fecha_maxima))) {
                 if (lista_por_fecha.isEmpty()) {
                     lista_por_fecha.add(dato);
                 } else {
