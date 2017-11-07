@@ -18,12 +18,13 @@ public class Control_Musica_Web {
     BufferedInputStream BIS;
     
     public Player player;
-    
+    //Stop playing an audio
     public void Stop(){
         if(player != null){
             player.close();
         }
     }
+    // Start playing an audio
     public void Play(String direccion_musica){
         if(player != null){
             player.close();
@@ -50,7 +51,7 @@ public class Control_Musica_Web {
             }
         }.start();
     }
-
+    // Open a URL on the web
     public void Ver_Trailer(String enlace) {
         if(java.awt.Desktop.isDesktopSupported()){
             java.awt.Desktop desktop = java.awt.Desktop.getDesktop();

@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author Enrique
  */
 public class Codigo_Login {
+    //Validate if the username and password are correct
     public ArrayList Verificar(String cuenta,String clave){
         String[] usuario_info;
         ArrayList lista = new ArrayList();

@@ -11,7 +11,7 @@ import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 
 public class Envios_correos {
-
+    //Method that sends an email
     public void SendMail(String envia, String pass, String mensaje, String destino, String asunto) {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");

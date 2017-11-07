@@ -14,6 +14,7 @@ import java.io.IOException;
  * @author Enrique
  */
 public class Cuentas_Usuarios {
+    // Check the account start information
     public boolean Verificar_cuenta(String cuenta,String clave){
         boolean existe_usuario = false;
         String line;
@@ -31,6 +32,7 @@ public class Cuentas_Usuarios {
         }
         return existe_usuario;
     }
+        //Search an account in the file
         public String[] Buscar_cuenta(String cuenta,String clave){
         String line;
         String[] usuario_archivo = null;

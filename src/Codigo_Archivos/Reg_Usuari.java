@@ -16,7 +16,7 @@ import java.io.IOException;
  * @author estudiante
  */
 public class Reg_Usuari {
-
+    // Verify if the username is available
     public boolean usuarios_reg(String txtReg_Usu) {
         boolean disponible = true;
         try {
@@ -39,6 +39,7 @@ public class Reg_Usuari {
         return disponible;
     }
 
+    // Save the user information in the file
     public void guardar_usuario(String txtReg_Usu, String txtReg_Pass, String txtReg_ced, String txtReg_correo) {
 
         try {

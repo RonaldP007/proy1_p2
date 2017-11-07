@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * @author Enrique
  */
 public class CRUB_Archivos {
-
+    // Save the music disc information in the file
     public void Guardar_Info_Musica(Catalogo_Musica disco_musica) {
         String info_disco_music = disco_musica.getNombre() + ";" + disco_musica.getAutor() + ";" + disco_musica.getCategoria() + ";"
                 + disco_musica.getPrecio() + ";" + disco_musica.getCantidad_Disponible() + ";" + disco_musica.getDireccion_Cancion();
@@ -31,7 +31,7 @@ public class CRUB_Archivos {
             System.out.println(ex);
         }
     }
-
+    //Save the movie disc information in the file
     public void Guardar_Info_Pelicula(Catalogo_Peliculas disco_pelicula) {
         String info_disco_pelicula = disco_pelicula.getNombre() + ";" + disco_pelicula.getAutor() + ";" + disco_pelicula.getCategoria() + ";"
                 + disco_pelicula.getPrecio() + ";" + disco_pelicula.getCantidad_Disponible() + ";"
@@ -42,7 +42,7 @@ public class CRUB_Archivos {
             System.out.println(ex);
         }
     }
-
+    // Search the information of the movies in the file
     public ArrayList<Catalogo_Peliculas> Buscar_Informacion_Peliculas_Archi() {
         ArrayList<Catalogo_Peliculas> lista_de_discos = new ArrayList<>();
         String line;
@@ -59,7 +59,7 @@ public class CRUB_Archivos {
         }
         return lista_de_discos;
     }
-
+    //Search the information of the music disc  in the file
     public ArrayList<Catalogo_Musica> Buscar_Informacion_Musica_Archi() {
         ArrayList<Catalogo_Musica> lista_de_discos = new ArrayList<>();
         String line;
@@ -76,7 +76,7 @@ public class CRUB_Archivos {
         }
         return lista_de_discos;
     }
-
+    //  Check if a disk already contains a preorder
     public boolean Verificar_Disco_Repetido_PreOrden(String disco_musica, String dir_archivo) {
         String line;
         boolean encontro_repetido = false;
@@ -93,7 +93,7 @@ public class CRUB_Archivos {
         }
         return encontro_repetido;
     }
-
+    // Update the music disc information in the file
     public boolean Actualizar_Disco_Musica(ArrayList<Catalogo_Musica> lista_discos, String dir_archivo) {
         boolean se_borro = false;
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(dir_archivo))) {
@@ -108,7 +108,7 @@ public class CRUB_Archivos {
         }
         return se_borro;
     }
-
+    //Update the movie disc information in the file
     public boolean Actualizar_Disco_Pelicula(ArrayList<Catalogo_Peliculas> lista_discos, String dir_archivo) {
         boolean se_borro = false;
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(dir_archivo))) {
@@ -123,7 +123,7 @@ public class CRUB_Archivos {
         }
         return se_borro;
     }
-
+    // Send the information of the disk to be updated
     public ArrayList<String> Envio_Disco_Actualizar(String nombre_Disco, String dir_archivo) {
         String line;
         ArrayList<String> Lista_datos = new ArrayList();
@@ -140,7 +140,7 @@ public class CRUB_Archivos {
         }
         return Lista_datos;
     }
-
+    // Add purchase information to the file and perform the preorders if there are no discs
     public boolean Agregar_PreOrden_Y_Compra(ArrayList<Dato_Compras> lista_preorden, ArrayList<Dato_Compras> lista_comprados) {
         boolean registrados = false;
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/Archivos/Compra_Musica.txt", true))) {

@@ -38,7 +38,7 @@ public class Graficos {
         frame.setVisible(true);
         frame.setTitle("Reportes");
     }
-
+     //Graph the report information 1
     public void graficar_rep1(String genero, JPanel panel) {
         Codigo_Reportes cr = new Codigo_Reportes();
         ArrayList<String> lista_compra_total = cr.cod_rep1(genero);
@@ -70,7 +70,7 @@ public class Graficos {
         panel.add(chartpanel);
         panel.repaint();
     }
-
+    //Graph the report information 4
     public void graficar_rep4(String genero, JPanel panel) {
         Codigo_Reportes cr = new Codigo_Reportes();
         ArrayList<String> lista_compra_total = cr.cod_rep4(genero);
@@ -102,7 +102,7 @@ public class Graficos {
         panel.add(chartpanel);
         panel.repaint();
     }
-
+ //Graph the report information 2
     public void graficar_rep2(JPanel panel,JComboBox combo) {
         Codigo_Reportes cr = new Codigo_Reportes();
         ArrayList<String> Lista_lista_max = cr.rep2_tod_max(combo);
@@ -134,6 +134,8 @@ public class Graficos {
         panel.add(chartpanel);
         panel.repaint();
     }
+    
+     //Graph the report information 5
     public void graficar_rep5(JPanel panel,JComboBox combo) {
         Codigo_Reportes cr = new Codigo_Reportes();
         ArrayList<String> Lista_lista_max = cr.rep2_tod_max_pel(combo);

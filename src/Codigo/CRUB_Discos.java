@@ -16,32 +16,34 @@ import javax.swing.JOptionPane;
  * @author Enrique
  */
 public class CRUB_Discos {
-
+    
+    
+    //Create a new music disc
     public void Crear_Disco_Musica(String nombre, String autor, String categoria, int precio, int cantidad, String direccion) {
         Catalogo_Musica disco_musica = new Catalogo_Musica(nombre, autor, categoria, precio, cantidad, direccion);
         CRUB_Archivos crub_archi = new CRUB_Archivos();
         crub_archi.Guardar_Info_Musica(disco_musica);
 
     }
-
+    //Create a new movie disc
     public void Crear_Disco_Pelicula(String nombre, String autor, String categoria, int precio, int cantidad, String direccionURL) {
         Catalogo_Peliculas disco_pelicula = new Catalogo_Peliculas(nombre, autor, categoria, precio, cantidad, direccionURL);
         CRUB_Archivos crub_archi = new CRUB_Archivos();
         crub_archi.Guardar_Info_Pelicula(disco_pelicula);
     }
-
+    // Search the information of the movies
     public ArrayList<Catalogo_Peliculas> Buscar_Informacion_de_peliculas() {
         CRUB_Archivos crub_archi = new CRUB_Archivos();
         ArrayList<Catalogo_Peliculas> discos_peliculas = crub_archi.Buscar_Informacion_Peliculas_Archi();
         return discos_peliculas;
     }
-
+    // Search the music disc information
     public ArrayList<Catalogo_Musica> Buscar_Informacion_de_Musica() {
         CRUB_Archivos crub_archi = new CRUB_Archivos();
         ArrayList<Catalogo_Musica> discos_musica = crub_archi.Buscar_Informacion_Musica_Archi();
         return discos_musica;
     }
-
+    //Check if the disk is in a preorder
     public boolean Verificar_Disco_En_PreOrden(String disco, String dir_archivo, String dir_archivo_preorden) {
         CRUB_Archivos crub_archivos = new CRUB_Archivos();
         boolean fue_borrado = false;
@@ -71,7 +73,7 @@ public class CRUB_Discos {
         }
         return fue_borrado;
     }
-
+//Update the information of a music disc
     public boolean Actualizar_Discos_Musica(Catalogo_Musica disco_musica, int precio, int cantidad) {
         disco_musica.setPrecio(precio);
         disco_musica.setCantidad_Disponible(cantidad);
@@ -90,7 +92,7 @@ public class CRUB_Discos {
         //El return es provisional
         return true;
     }
-
+//Update the information of a movie disc
     public boolean Actualizar_Discos_Pelicula(Catalogo_Peliculas disco_pelicula, int precio, int cantidad, String direccionURL) {
         disco_pelicula.setPrecio(precio);
         disco_pelicula.setCantidad_Disponible(cantidad);
@@ -110,6 +112,8 @@ public class CRUB_Discos {
         //El return es provisional
         return false;
     }
+    
+    // Send an email to the users of the preordenes when a music disc is modified
     public boolean Lista_enviar_mod_disco_mus(String nombre_disco, int precio) {
         boolean registro = false;
         CRUB_Archivos info = new CRUB_Archivos();
@@ -140,6 +144,8 @@ public class CRUB_Discos {
         }
         return registro;
     }
+    
+      // Send an email to the users of the preordenes when a movie disc is modified
      public boolean Lista_enviar_mod_disco_pel(String nombre_disco, int precio) {
         boolean registro = false;
         CRUB_Archivos info = new CRUB_Archivos();
