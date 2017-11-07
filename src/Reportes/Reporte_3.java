@@ -5,9 +5,10 @@
  */
 package Reportes;
 
-import Codigo.Report_3;
+import Codigo.Codigo_Reportes;
 import Objetos.Dato_Compras;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -144,10 +145,12 @@ public class Reporte_3 extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        //Pasarlo a capas
-        Report_3 rp3= new Report_3();
-        //enviar asi String fecha = 28/01/1999
-        //ArrayList<Dato_Compras> lista =rp3.rep3(fecha_1, fecha_2);
+        Codigo_Reportes cr= new Codigo_Reportes();
+        ArrayList<Dato_Compras> lista =cr.rep3("01/11/2017", "06/11/2017","src/Archivos/Compra_Musica.txt");
+        for (Iterator<Dato_Compras> iterator = lista.iterator(); iterator.hasNext();) {
+            Dato_Compras next = iterator.next();
+            System.out.println(next.getCantidad_Comprado());
+        }
     }//GEN-LAST:event_btn1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

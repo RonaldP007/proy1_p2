@@ -6,6 +6,7 @@
 package Codigo_Archivos;
 
 import Objetos.Catalogo_Musica;
+import Objetos.Dato_Compras;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -182,4 +183,22 @@ public class Buscar_Info_Archivo {
         }
         return Lista_Usuarios;
     }
+    public ArrayList<Dato_Compras> info_rep3(String archivo){
+        String linea;
+        ArrayList<Dato_Compras> lista = new ArrayList<>();
+        try(BufferedReader br= new BufferedReader(new FileReader(archivo))){
+            while((linea = br.readLine()) != null){
+                String[] info_disco = linea.split(";");
+                Dato_Compras dato;
+                dato = new Dato_Compras(info_disco[0], Integer.parseInt(info_disco[1]),
+                        info_disco[2], info_disco[3], Integer.parseInt(info_disco[4]), 
+                        Integer.parseInt(info_disco[5]), info_disco[6], info_disco[7]);
+                lista.add(dato);
+            }
+        }catch(IOException ex){
+            System.out.println(ex);
+        }
+    return lista;
+    }
+    
 }

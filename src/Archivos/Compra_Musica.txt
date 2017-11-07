@@ -1,4 +1,4 @@
-Luis;22222;gmail;Sale el sol;2000;8;musica;22/10/2017
+Luis;22222;gmail;Sale el sol;2000;8;musica;05/11/2017
 Luis;22222;gmail;Luna;2000;18;musica;22/10/2017
 Luis;22222;gmail;Agua;2000;38;musica;22/10/2017
 Luis;22222;gmail;Sol;2000;31;musica;22/10/2017
@@ -16,6 +16,6 @@ Luis;22222;gmail;Nube;2000;38;musica;22/10/2017
 Luis;22222;gmail;Sol;2000;31;musica;22/10/2017
 cc;22222;gmail;Sol;2000;20;musica;22/10/2017
 cc;22222;gmail;Nube;2000;20;musica;22/10/2017
-cc;22222;gmail;Agua;2000;20;musica;22/10/2017
-cc;22222;gmail;Agua;2000;20;musica;22/10/2017
+cc;22222;gmail;Agua;2000;20;musica;05/11/2017
+cc;22222;gmail;Agua;2000;20;musica;05/11/2017
 cc;22222;gmail;Tierra;2000;20;musica;22/10/2017

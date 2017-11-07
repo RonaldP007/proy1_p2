@@ -6,6 +6,8 @@
 package Codigo;
 
 import Codigo_Archivos.Buscar_Info_Archivo;
+import Objetos.Dato_Compras;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JComboBox;
@@ -302,5 +304,40 @@ public class Codigo_Reportes {
 
         return lista_fusion;
 
+    }
+
+    public ArrayList<Dato_Compras> rep3(String fecha_1, String fecha_2, String archivo) {
+        boolean no_esta = false;
+        Buscar_Info_Archivo bia = new Buscar_Info_Archivo();
+        String[] fecha_min = fecha_1.split("/");
+        String[] fecha_max = fecha_2.split("/");
+        LocalDate fecha_minima = LocalDate.of(Integer.parseInt(fecha_min[2]), Integer.parseInt(fecha_min[1]), Integer.parseInt(fecha_min[0]));
+        LocalDate fecha_maxima = LocalDate.of(Integer.parseInt(fecha_max[2]), Integer.parseInt(fecha_max[1]), Integer.parseInt(fecha_max[0]));
+        ArrayList<Dato_Compras> lista_discos = bia.info_rep3(archivo);
+        ArrayList<Dato_Compras> lista_por_fecha = new ArrayList<>();
+        for (Dato_Compras dato : lista_discos) {
+            String[] fecha = dato.getFecha().split("/");
+            LocalDate fecha_disco = LocalDate.of(Integer.parseInt(fecha[2]), Integer.parseInt(fecha[1]), Integer.parseInt(fecha[0]));
+            if (fecha_disco.isAfter(fecha_minima) && fecha_disco.isBefore(fecha_maxima)) {
+                if (lista_por_fecha.isEmpty()) {
+                    lista_por_fecha.add(dato);
+                } else {
+                    for (int i = 0;i < lista_por_fecha.size();i++) {
+                        if (lista_por_fecha.get(i).getNombre_Articulo().equals(dato.getNombre_Articulo())) {
+                            int cantidad = lista_por_fecha.get(i).getCantidad_Comprado();
+                            lista_por_fecha.get(i).setCantidad_Comprado((cantidad + dato.getCantidad_Comprado()));
+                            no_esta = false;
+                            break;
+                        } else {
+                            no_esta = true;
+                        }
+                    }
+                    if(no_esta){
+                        lista_por_fecha.add(dato);
+                    }
+                }
+            }
+        }
+        return lista_por_fecha;
     }
 }

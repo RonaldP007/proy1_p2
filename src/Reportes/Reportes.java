@@ -158,6 +158,9 @@ public class Reportes extends javax.swing.JDialog {
         }else if (jRadioButton5.isSelected()){
             Reporte_5 rep5 = new Reporte_5(new JFrame(), true);
             rep5.setVisible(true);
+        }else if (jRadioButton3.isSelected()){
+            Reporte_3 rep3 = new Reporte_3(new JFrame(), true);
+            rep3.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
