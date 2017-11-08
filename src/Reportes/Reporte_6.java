@@ -13,14 +13,14 @@ import java.util.Iterator;
 
 /**
  *
- * @author Ronald
+ * @author Enrique
  */
-public class Reporte_3 extends javax.swing.JDialog {
+public class Reporte_6 extends javax.swing.JDialog {
 
     /**
-     * Creates new form Reporte_3
+     * Creates new form Reporte_6
      */
-    public Reporte_3(java.awt.Frame parent, boolean modal) {
+    public Reporte_6(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -55,7 +55,6 @@ public class Reporte_3 extends javax.swing.JDialog {
         txtArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Reporte 5");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -178,7 +177,7 @@ public class Reporte_3 extends javax.swing.JDialog {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
+            .addGap(0, 355, Short.MAX_VALUE)
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -186,7 +185,7 @@ public class Reporte_3 extends javax.swing.JDialog {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Compras x Fecha x Musica");
+        jLabel2.setText("Compras x Fecha x Peliculas");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 2, 220, 23));
 
         txtArea.setColumns(20);
@@ -224,11 +223,16 @@ public class Reporte_3 extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         Codigo_Reportes cr= new Codigo_Reportes();
         String fecha1 = jComboBox1.getSelectedItem()+"/"+jComboBox2.getSelectedItem()+"/"+jComboBox3.getSelectedItem();
         String fecha2 = jComboBox4.getSelectedItem()+"/"+jComboBox5.getSelectedItem()+"/"+jComboBox6.getSelectedItem();
-        ArrayList<Dato_Compras> lista =cr.rep3(fecha1,fecha2,"src/Archivos/Compra_Musica.txt");
+        ArrayList<Dato_Compras> lista =cr.rep3(fecha1,fecha2,"src/Archivos/Compra_Peliculas.txt");
         for (Iterator<Dato_Compras> iterator = lista.iterator(); iterator.hasNext();) {
             Dato_Compras next = iterator.next();
             String inf = txtArea.getText();
@@ -239,10 +243,47 @@ public class Reporte_3 extends javax.swing.JDialog {
         gf.graficar_rep3(jPanel2,fecha1,fecha2,lista);
     }//GEN-LAST:event_btn1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Reporte_6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Reporte_6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Reporte_6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Reporte_6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                Reporte_6 dialog = new Reporte_6(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
