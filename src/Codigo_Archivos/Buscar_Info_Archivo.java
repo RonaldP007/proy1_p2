@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author Enrique
  */
 public class Buscar_Info_Archivo {
-
+    //This method check if the account is equals
     public boolean Info_repetida(String nombre_archivo, String nombre_dis_peli) {
         boolean disponible = true;
         String line;
@@ -34,7 +34,7 @@ public class Buscar_Info_Archivo {
         }
         return disponible;
     }
-
+    //This method return all music disks of a genre
     public ArrayList<String> Info_Disco_Mus_Rep1(String genero) {
         String line;
         ArrayList<String> Lista_datos_nombre_genero = new ArrayList();
@@ -50,7 +50,7 @@ public class Buscar_Info_Archivo {
         }
         return Lista_datos_nombre_genero;
     }
-
+    //This method return all movie disks of a genre
     public ArrayList<String> Info_Disco_Pel_Rep1(String genero) {
         String line;
         ArrayList<String> Lista_datos_nombre_genero = new ArrayList();
@@ -66,7 +66,7 @@ public class Buscar_Info_Archivo {
         }
         return Lista_datos_nombre_genero;
     }
-
+    //This method return the information for genre to the second report from discs music
     public ArrayList<String> Info_Disc_Mus_Compras(String genero) {
         ArrayList<String> Lista_nombre = Info_Disco_Mus_Rep1(genero);
         ArrayList<String> Lista_datos_compras = new ArrayList();
@@ -86,7 +86,7 @@ public class Buscar_Info_Archivo {
         }
         return Lista_datos_compras;
     }
-
+    //This method return the information of music disk for genre and user to the second report
     public ArrayList<String> Info_Disc_Mus_Compras_usu(String genero, String usuario) {
         ArrayList<String> Lista_nombre = Info_Disco_Mus_Rep1(genero);
         ArrayList<String> Lista_datos_compras = new ArrayList();
@@ -106,7 +106,7 @@ public class Buscar_Info_Archivo {
         }
         return Lista_datos_compras;
     }
-
+    //This method return the information of movie disk for genre and user to the second report
     public ArrayList<String> Info_Disc_Pel_Compras_usu(String genero, String usuario) {
         ArrayList<String> Lista_nombre = Info_Disco_Pel_Rep1(genero);
         ArrayList<String> Lista_datos_compras = new ArrayList();
@@ -126,7 +126,7 @@ public class Buscar_Info_Archivo {
         }
         return Lista_datos_compras;
     }
-
+    //This method return the information the report four from discs movie
     public ArrayList<String> Info_Disco_Pel_Rep4(String genero) {
         String line;
         ArrayList<String> Lista_datos_nombre_genero = new ArrayList();
@@ -142,7 +142,7 @@ public class Buscar_Info_Archivo {
         }
         return Lista_datos_nombre_genero;
     }
-
+    //This method return the information for genre to the second report from discs movie
     public ArrayList<String> Info_Disc_Pel_Compras(String genero) {
         ArrayList<String> Lista_nombre = Info_Disco_Pel_Rep4(genero);
         ArrayList<String> Lista_datos_compras = new ArrayList();
@@ -162,7 +162,7 @@ public class Buscar_Info_Archivo {
         }
         return Lista_datos_compras;
     }
-
+    //This methods return a user
     public ArrayList<String> Usuarios() {
         ArrayList<String> Lista_Usuarios = new ArrayList();
         try {
@@ -183,6 +183,7 @@ public class Buscar_Info_Archivo {
         }
         return Lista_Usuarios;
     }
+        //This method return the purchased discs
     public ArrayList<Dato_Compras> info_rep3(String archivo){
         String linea;
         ArrayList<Dato_Compras> lista = new ArrayList<>();

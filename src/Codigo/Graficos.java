@@ -133,6 +133,7 @@ public class Graficos {
         panel.add(chartpanel);
         panel.repaint();
     }
+    //Graph the report information 3 and 6
     public void graficar_rep3(JPanel panel,String fecha1,String fecha2,ArrayList<Dato_Compras> lista) {
         DefaultPieDataset data = new DefaultPieDataset();
         for (Iterator<Dato_Compras> iterator = lista.iterator(); iterator.hasNext();) {

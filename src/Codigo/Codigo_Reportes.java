@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author Ronald
  */
 public class Codigo_Reportes {
-
+    //This method take all genre of music CD and return the major and minor CD for genre 
     public ArrayList<String> cod_rep1(String genero) {
         Buscar_Info_Archivo arc_lista = new Buscar_Info_Archivo();
         ArrayList<String> lista_compra_genero = arc_lista.Info_Disc_Mus_Compras(genero);
@@ -56,7 +56,7 @@ public class Codigo_Reportes {
         Lista_Mas_menos.addAll(Arrays.asList(mas_men));
         return Lista_Mas_menos;
     }
-
+    //This method take all genre of movie CD and return the major and minor CD for genre 
     public ArrayList<String> cod_rep4(String genero) {
         Buscar_Info_Archivo arc_lista = new Buscar_Info_Archivo();
         ArrayList<String> lista_compra_genero = arc_lista.Info_Disc_Pel_Compras(genero);
@@ -94,7 +94,7 @@ public class Codigo_Reportes {
         Lista_Mas_menos.addAll(Arrays.asList(mas_men));
         return Lista_Mas_menos;
     }
-
+    //This method take the user check and return all CD of music shopped for the user
     public ArrayList<String> cod_rep2(String genero, String usuario) {
         Buscar_Info_Archivo arc_lista = new Buscar_Info_Archivo();
         ArrayList<String> lista_compra_genero = arc_lista.Info_Disc_Mus_Compras_usu(genero, usuario);
@@ -126,14 +126,14 @@ public class Codigo_Reportes {
         Lista_Mas.addAll(Arrays.asList(mas));
         return Lista_Mas;
     }
-
+    //This method return all users of music
     public ArrayList<String> rep2_combo_usu_mus() {
         Buscar_Info_Archivo arc_lista = new Buscar_Info_Archivo();
         ArrayList<String> lista_usuarios = arc_lista.Usuarios();
         return lista_usuarios;
 
     }
-
+    //This method return the more purchased for genre of music
     public ArrayList<String> rep2_tod_max(JComboBox jComboBox1) {
         ArrayList<String> lista_info_usu_elect = cod_rep2("Electronica", (String) jComboBox1.getSelectedItem());
         ArrayList<String> lista_info_usu_ranch = cod_rep2("Rancheras", (String) jComboBox1.getSelectedItem());
@@ -199,7 +199,7 @@ public class Codigo_Reportes {
         }
         return lista_fusion;
     }
-
+    //This method return the more purchased for genre of movie
     public ArrayList<String> cod_rep2_pel(String genero, String usuario) {
         Buscar_Info_Archivo arc_lista = new Buscar_Info_Archivo();
         ArrayList<String> lista_compra_genero = arc_lista.Info_Disc_Pel_Compras_usu(genero, usuario);
@@ -231,14 +231,14 @@ public class Codigo_Reportes {
         Lista_Mas.addAll(Arrays.asList(mas));
         return Lista_Mas;
     }
-
+    //This method return all users of movie
     public ArrayList<String> rep2_combo_usu_pel() {
         Buscar_Info_Archivo arc_lista = new Buscar_Info_Archivo();
         ArrayList<String> lista_usuarios = arc_lista.Usuarios();
         return lista_usuarios;
 
     }
-
+    //This method return the more purchased for genre of movie
     public ArrayList<String> rep2_tod_max_pel(JComboBox jComboBox1) {
         ArrayList<String> lista_info_usu_ter = cod_rep2_pel("Terror", (String) jComboBox1.getSelectedItem());
         ArrayList<String> lista_info_usu_cien = cod_rep2_pel("Ciencia Ficcion", (String) jComboBox1.getSelectedItem());
@@ -306,7 +306,7 @@ public class Codigo_Reportes {
         return lista_fusion;
 
     }
-
+    //This method return all CDs in range of dates for movie and music
     public ArrayList<Dato_Compras> rep3(String fecha_1, String fecha_2, String archivo) {
         boolean no_esta = false;
         ArrayList<Dato_Compras> lista_por_fecha = new ArrayList<>();

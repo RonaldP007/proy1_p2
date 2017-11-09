@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Enrique
  */
 public class Modelo_Tabla {
-
+    //This method recieves a table and parameters for search music disk and set the information
     public void Modelo_Tabla_Musica(JTable tabla, String tipo_busqueda, String valor1, String valor2) {
         Object[][] disco = Agregar_Discos_Tabla_Musica(tipo_busqueda, valor1, valor2);
         tabla.setDefaultRenderer(Object.class, new Renderizar_Tabla());
@@ -34,9 +34,9 @@ public class Modelo_Tabla {
         };
         tabla.setModel(modelo);
     }
-
+    //This method recieves a table and parameters for search movie disk and set the information
     public void Modelo_Tabla_Pelicula(JTable tabla, String tipo_busqueda, String valor1, String valor2) {
-        Object[][] discos = Agregar_Discos_Tabla_Pelicula(tipo_busqueda, valor1, valor2);//Enviar por parametro el tipo de busqueda y los valores o valor
+        Object[][] discos = Agregar_Discos_Tabla_Pelicula(tipo_busqueda, valor1, valor2);
         tabla.setDefaultRenderer(Object.class, new Renderizar_Tabla());
         DefaultTableModel modelo = new DefaultTableModel(
                 discos,
@@ -49,7 +49,7 @@ public class Modelo_Tabla {
         };
         tabla.setModel(modelo);
     }
-
+    //This method add music disk in a two-dimensional array
     private Object[][] Agregar_Discos_Tabla_Musica(String tipo_busqueda, String valor1, String valor2) {
         CRUB_Discos crub_disco = new CRUB_Discos();
         ArrayList<Catalogo_Musica> lista_nueva = new ArrayList<>();
@@ -133,7 +133,7 @@ public class Modelo_Tabla {
 
         return informacion_discos;
     }
-
+    //This method add movie disk in a two-dimensional array
     private Object[][] Agregar_Discos_Tabla_Pelicula(String tipo_busqueda, String valor1, String valor2) {
         CRUB_Discos crub_disco = new CRUB_Discos();
         ArrayList<Catalogo_Peliculas> lista_nueva = new ArrayList<>();
@@ -209,12 +209,12 @@ public class Modelo_Tabla {
         }
         return informacion_discos;
     }
-
+    //This method return the name of the disk in a table
     public String Obtener_Disco(JTable tabla, int row) {
         String nombre_disco = (String) tabla.getValueAt(row, 0);
         return nombre_disco;
     }
-
+    //This method clean a table especific "Tabla_Compras"
     public DefaultTableModel Limpiar_Tabla(JTable Tabla_Compras) {
         DefaultTableModel modelo = (DefaultTableModel) Tabla_Compras.getModel();
         int filas = Tabla_Compras.getRowCount();
@@ -223,7 +223,7 @@ public class Modelo_Tabla {
         }
         return modelo;
     }
-
+    //This method update music table
     public DefaultTableModel Actualizar_Tabla_Compras_Musica(JTable Tabla_Compras, Catalogo_Musica disco_musica, String[] usuario, int cantidad) {
         Dato_Compras dato;
         Object[] objeto;
@@ -238,7 +238,7 @@ public class Modelo_Tabla {
         }
         return modelo;
     }
-
+    //This method update movie table
     public DefaultTableModel Actualizar_Tabla_Compras_Peliculas(JTable Tabla_Compras, Catalogo_Peliculas disco_pelicula, String[] usuario, int cantidad) {
         Dato_Compras dato;
         Object[] objeto;
@@ -253,7 +253,7 @@ public class Modelo_Tabla {
         }
         return modelo;
     }
-
+    //This method remove a disk of "Tabla_Compras"
     public DefaultTableModel Eliminar_Objeto_Compra(String disco, JTable Tabla_Compras) {
         Object[] objeto;
         DefaultTableModel modelo = Limpiar_Tabla(Tabla_Compras);

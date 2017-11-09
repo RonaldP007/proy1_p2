@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author Enrique
  */
 public class Metodos_Para_Ventanas {
-
+    //Return the position of the music disk in the arraylist
     public int Buscar_Objeto_Musica(ArrayList<Catalogo_Musica> lista, String nombre) {
         int posicion = 0;
         for (int i = 0; i < lista.size(); i++) {
@@ -24,7 +24,7 @@ public class Metodos_Para_Ventanas {
         }
         return posicion;
     }
-
+    //Return the position of the movie disk in the arraylist
     public int Buscar_Objeto_Pelicula(ArrayList<Catalogo_Peliculas> lista, String nombre) {
         int posicion = 0;
         for (int i = 0; i < lista.size(); i++) {

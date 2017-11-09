@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableCellRenderer;
  * @author Enrique
  */
 public class Renderizar_Tabla extends DefaultTableCellRenderer{
-
+    //The following method renders the table and adds a button
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value,
             boolean isSelected, boolean hasFocus, int row, int column) {

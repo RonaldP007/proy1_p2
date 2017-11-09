@@ -19,13 +19,13 @@ import javax.swing.JOptionPane;
  * @author Enrique
  */
 public class Metodos_Compras {
-
+    //Return the date
     public String Obtener_Fecha() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         return dateFormat.format(date);
     }
-
+    //Return position CD of music
     public int Buscar_Objeto_Musica(ArrayList<Catalogo_Musica> lista, String nombre) {
         int posicion = 0;
         for (int i = 0; i < lista.size(); i++) {
@@ -36,7 +36,7 @@ public class Metodos_Compras {
         }
         return posicion;
     }
-
+    //Return position CD of movie
     public int Buscar_Objeto_Pelicula(ArrayList<Catalogo_Peliculas> lista, String nombre) {
         int posicion = 0;
         for (int i = 0; i < lista.size(); i++) {
@@ -47,7 +47,7 @@ public class Metodos_Compras {
         }
         return posicion;
     }
-
+    //This method send the CDs purchased and CDs of pre-order to txt
     public boolean Realizando_Compras_Peliculas_Musica(ArrayList<Catalogo_Peliculas> lista_peli, ArrayList<Catalogo_Musica> lista_musica) {
         boolean agregado_compras = false;
         ArrayList<Dato_Compras> lista_comprados_archivo = new ArrayList<>();
@@ -85,15 +85,13 @@ public class Metodos_Compras {
                 }
             }
         }
-        //Tengo que enviar las 2 lista con los rebajos de lo comprado
         CRUB_Archivos crub_archivos = new CRUB_Archivos();
         agregado_compras = crub_archivos.Actualizar_Disco_Musica(lista_musica, "src/Archivos/cat_musica.txt");
         agregado_compras = crub_archivos.Actualizar_Disco_Pelicula(lista_peli, "src/Archivos/cat_peliculas.txt");
-        //tengo que guardar en archivo preordenes
         crub_archivos.Agregar_PreOrden_Y_Compra(lista_preorden_archivo ,lista_comprados_archivo);
         return agregado_compras;
     }
-    
+     //This method Return the sum of the all CDs of the client   
     public int Costo_Total(ArrayList<Dato_Compras> lista){
         int costo_total = 0;
         if(lista != null){
