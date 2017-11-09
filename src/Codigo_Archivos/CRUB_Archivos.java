@@ -11,6 +11,7 @@ import Objetos.Dato_Compras;
 import Objetos.Datos_Catalogo;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -194,4 +195,50 @@ public class CRUB_Archivos {
         }
         return registrados;
     }
+     public void eliminar_preorden(String nombre_dis, String dir_archivo){
+        try {
+            String temp;
+            try (BufferedReader bf = new BufferedReader(new FileReader(dir_archivo))) {
+                String bfRead;
+                while ((bfRead = bf.readLine()) != null) {
+                    temp = bfRead;
+                    String lista = temp;
+                    String[] lista1 = lista.split(";");
+                    if (lista1[1].equals(nombre_dis)) {
+                        try {
+                            File archivo = new File(dir_archivo);
+                            FileWriter escribir = new FileWriter(archivo, true);
+                            String temp1;
+                            try (BufferedReader bf1 = new BufferedReader(new FileReader(dir_archivo))) {
+
+                                String bf1Read;
+
+                                while ((bf1Read = bf1.readLine()) != null) {
+                                    temp1 = bf1Read;
+
+                                    if (temp1.equals(lista)) {
+                                        BufferedWriter br = new BufferedWriter(new FileWriter(dir_archivo));
+
+                                        continue;
+                                    }
+                                    escribir.write(temp1 + "\r\n");
+                                }
+                                escribir.close();
+
+                            }
+                        } catch (IOException e) {
+                            System.err.println("No se encontro el archivo");
+                        }
+
+                        break;
+
+                    } 
+                }
+            }
+
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo2");
+        }
+    }
+    
 }

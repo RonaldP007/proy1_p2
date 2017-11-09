@@ -102,7 +102,7 @@ public class Crear_Disco extends javax.swing.JDialog {
         jLabel7.setText("Cantidad:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 279, 66, 22));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Faded" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Faded", "Burbujas de amor", "Tu primera vez", "No me se rajar", "Ese" }));
         jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 238, 124, -1));
 
         txtCantidad.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +157,22 @@ public class Crear_Disco extends javax.swing.JDialog {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Verificar_En_Archivo ven = new Verificar_En_Archivo();
+        String direccion = "";
+        if(jComboBox2.getSelectedItem().equals("Faded")){
+            direccion = "src/Archivos/Canciones/faded Alan Walker(electronica).mp3";
+        }
+        if(jComboBox2.getSelectedItem().equals("Burbujas de amor")){
+            direccion = "src/Archivos/Canciones/Burbujas De Amor Juan Luis Guerra(bachata).mp3";
+        }
+        if(jComboBox2.getSelectedItem().equals("Tu primera vez")){
+            direccion = "src/Archivos/Canciones/GRUPO KAROS DE MEX.. TU PRIMERA VEZ(Cumbia).mp3";
+        }
+        if(jComboBox2.getSelectedItem().equals("No me se rajar")){
+            direccion = "src/Archivos/Canciones/Vicente Fernandez- No Me Se Rajar(ranchera).mp3";
+        }
+        if(jComboBox2.getSelectedItem().equals("Ese")){
+            direccion = "src/Archivos/Canciones/Jerry Rivera - Ese(salsa).mp3";
+        }
         boolean nombre_disponible = ven.Verificar("src/Archivos/cat_musica.txt", txtNombre.getText());
         if (txtNombre.getText().equals("") || txtAutor.getText().equals("") || txtPrecio.getText().equals("") || txtCantidad.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "No pueden haber casillas vacias");
@@ -166,7 +182,7 @@ public class Crear_Disco extends javax.swing.JDialog {
                 CRUB_Discos crub = new CRUB_Discos();
                 crub.Crear_Disco_Musica(txtNombre.getText(), txtAutor.getText(),
                         String.valueOf(jComboBox1.getSelectedItem()), Integer.parseInt(txtPrecio.getText()),
-                        Integer.parseInt(txtCantidad.getText()), "src/Archivos/Canciones/faded Alan Walker(electronica).mp3");
+                        Integer.parseInt(txtCantidad.getText()), direccion);
                 JOptionPane.showMessageDialog(null, "Se ha creado el disco");
                 this.dispose();
             }

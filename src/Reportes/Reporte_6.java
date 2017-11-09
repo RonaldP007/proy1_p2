@@ -230,6 +230,7 @@ public class Reporte_6 extends javax.swing.JDialog {
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         Codigo_Reportes cr= new Codigo_Reportes();
+        txtArea.setText("");
         String fecha1 = jComboBox1.getSelectedItem()+"/"+jComboBox2.getSelectedItem()+"/"+jComboBox3.getSelectedItem();
         String fecha2 = jComboBox4.getSelectedItem()+"/"+jComboBox5.getSelectedItem()+"/"+jComboBox6.getSelectedItem();
         ArrayList<Dato_Compras> lista =cr.rep3(fecha1,fecha2,"src/Archivos/Compra_Peliculas.txt");
