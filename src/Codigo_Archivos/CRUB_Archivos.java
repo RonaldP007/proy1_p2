@@ -8,6 +8,7 @@ package Codigo_Archivos;
 import Objetos.Catalogo_Musica;
 import Objetos.Catalogo_Peliculas;
 import Objetos.Dato_Compras;
+import Objetos.Dato_Pre_Orden;
 import Objetos.Datos_Catalogo;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
  * @author Enrique
  */
 public class CRUB_Archivos {
+
     // Save the music disc information in the file
     public void Guardar_Info_Musica(Catalogo_Musica disco_musica) {
         String info_disco_music = disco_musica.getNombre() + ";" + disco_musica.getAutor() + ";" + disco_musica.getCategoria() + ";"
@@ -32,6 +34,7 @@ public class CRUB_Archivos {
             System.out.println(ex);
         }
     }
+
     //Save the movie disc information in the file
     public void Guardar_Info_Pelicula(Catalogo_Peliculas disco_pelicula) {
         String info_disco_pelicula = disco_pelicula.getNombre() + ";" + disco_pelicula.getAutor() + ";" + disco_pelicula.getCategoria() + ";"
@@ -43,6 +46,7 @@ public class CRUB_Archivos {
             System.out.println(ex);
         }
     }
+
     // Search the information of the movies in the file
     public ArrayList<Catalogo_Peliculas> Buscar_Informacion_Peliculas_Archi() {
         ArrayList<Catalogo_Peliculas> lista_de_discos = new ArrayList<>();
@@ -60,6 +64,7 @@ public class CRUB_Archivos {
         }
         return lista_de_discos;
     }
+
     //Search the information of the music disc  in the file
     public ArrayList<Catalogo_Musica> Buscar_Informacion_Musica_Archi() {
         ArrayList<Catalogo_Musica> lista_de_discos = new ArrayList<>();
@@ -77,6 +82,7 @@ public class CRUB_Archivos {
         }
         return lista_de_discos;
     }
+
     //  Check if a disk already contains a preorder
     public boolean Verificar_Disco_Repetido_PreOrden(String disco_musica, String dir_archivo) {
         String line;
@@ -94,6 +100,7 @@ public class CRUB_Archivos {
         }
         return encontro_repetido;
     }
+
     // Update the music disc information in the file
     public boolean Actualizar_Disco_Musica(ArrayList<Catalogo_Musica> lista_discos, String dir_archivo) {
         boolean se_borro = false;
@@ -109,6 +116,7 @@ public class CRUB_Archivos {
         }
         return se_borro;
     }
+
     //Update the movie disc information in the file
     public boolean Actualizar_Disco_Pelicula(ArrayList<Catalogo_Peliculas> lista_discos, String dir_archivo) {
         boolean se_borro = false;
@@ -124,6 +132,7 @@ public class CRUB_Archivos {
         }
         return se_borro;
     }
+
     // Send the information of the disk to be updated
     public ArrayList<String> Envio_Disco_Actualizar(String nombre_Disco, String dir_archivo) {
         String line;
@@ -141,6 +150,7 @@ public class CRUB_Archivos {
         }
         return Lista_datos;
     }
+
     // Add purchase information to the file and perform the preorders if there are no discs
     public boolean Agregar_PreOrden_Y_Compra(ArrayList<Dato_Compras> lista_preorden, ArrayList<Dato_Compras> lista_comprados) {
         boolean registrados = false;
@@ -195,7 +205,8 @@ public class CRUB_Archivos {
         }
         return registrados;
     }
-     public void eliminar_preorden(String nombre_dis, String dir_archivo){
+    //This method delete a pre-order
+    public void eliminar_preorden(String nombre_dis, String dir_archivo) {
         try {
             String temp;
             try (BufferedReader bf = new BufferedReader(new FileReader(dir_archivo))) {
@@ -232,7 +243,7 @@ public class CRUB_Archivos {
 
                         break;
 
-                    } 
+                    }
                 }
             }
 
@@ -240,5 +251,56 @@ public class CRUB_Archivos {
             System.err.println("No se encontro el archivo2");
         }
     }
-    
+    //This method return arraylist the pre-order discs
+    public ArrayList<Dato_Pre_Orden> Buscar_Pre_Orden_Archivo(String archivo) {
+        ArrayList<Dato_Pre_Orden> lista_preorden = new ArrayList<>();
+        String linea;
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            while ((linea = br.readLine()) != null) {
+                String[] preorden = linea.split(";");
+                Dato_Pre_Orden dato_pre_orden = new Dato_Pre_Orden(preorden[0],
+                        preorden[1], preorden[2], preorden[3],
+                        Integer.parseInt(preorden[4]));
+                lista_preorden.add(dato_pre_orden);
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        return lista_preorden;
+    }
+    //This method return arraylist the purchased discs
+    public ArrayList<Dato_Compras> Buscar_Compras_Archivo(String archivo, String cedula) {
+        ArrayList<Dato_Compras> lista_Compras = new ArrayList<>();
+        String linea;
+        if (!cedula.equals("")) {
+            try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+                while ((linea = br.readLine()) != null) {
+                    String[] compra = linea.split(";");
+                    if (compra[1].contains(cedula)) {
+                        Dato_Compras dato_compra = new Dato_Compras(compra[0], Integer.parseInt(compra[1]),
+                                compra[2], compra[3], Integer.parseInt(compra[4]),
+                                Integer.parseInt(compra[5]), compra[6], compra[7]);
+                        lista_Compras.add(dato_compra);
+                    }
+
+                }
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
+        } else {
+            try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+                while ((linea = br.readLine()) != null) {
+                    String[] compra = linea.split(";");
+                        Dato_Compras dato_compra = new Dato_Compras(compra[0], Integer.parseInt(compra[1]),
+                                compra[2], compra[3], Integer.parseInt(compra[4]),
+                                Integer.parseInt(compra[5]), compra[6], compra[7]);
+                        lista_Compras.add(dato_compra);
+                }
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
+
+        }
+        return lista_Compras;
+    }
 }

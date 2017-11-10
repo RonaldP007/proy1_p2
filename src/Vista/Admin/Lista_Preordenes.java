@@ -5,6 +5,10 @@
  */
 package Vista.Admin;
 
+import Codigo.Verificar_En_Archivo;
+import Objetos.Dato_Pre_Orden;
+import java.util.ArrayList;
+
 /**
  *
  * @author Enrique
@@ -14,14 +18,22 @@ public class Lista_Preordenes extends javax.swing.JDialog {
     /**
      * Creates new form Lista_Preordenes
      */
-    boolean tipo_dico = false;
+    ArrayList<Dato_Pre_Orden> lista_preordenes;
+    boolean tipo_disco = false;
     public Lista_Preordenes(java.awt.Frame parent, boolean modal,boolean tipo_cd) {
         super(parent, modal);
         if(tipo_cd){
-            tipo_dico = true;
+            tipo_disco = true;
         }
         initComponents();
         this.setLocationRelativeTo(null);
+        Verificar_En_Archivo vea= new Verificar_En_Archivo();
+        if(tipo_disco){
+            lista_preordenes = vea.Buscar_Pre_Ordenes("src/Archivos/Pre_Ordenes_Musica.txt");
+        }else{
+            lista_preordenes = vea.Buscar_Pre_Ordenes("src/Archivos/Pre_Ordenes_Peliculas.txt");
+        }
+        vea.Agregar_En_Preoden(jTable1, lista_preordenes);
     }
 
     /**
