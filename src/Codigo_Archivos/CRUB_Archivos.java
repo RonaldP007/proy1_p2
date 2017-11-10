@@ -41,7 +41,7 @@ public class CRUB_Archivos {
                 + disco_pelicula.getPrecio() + ";" + disco_pelicula.getCantidad_Disponible() + ";"
                 + disco_pelicula.getdireccionURL();
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/Archivos/cat_peliculas.txt", true))) {
-            bw.write(info_disco_pelicula);
+            bw.write(info_disco_pelicula + System.lineSeparator());
         } catch (IOException ex) {
             System.out.println(ex);
         }

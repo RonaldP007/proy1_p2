@@ -121,7 +121,7 @@ public class Graficos {
             data.setValue(Lista_totales.get(j), Integer.parseInt(Lista_totales.get(j+1)));
         }
         JFreeChart chart = ChartFactory.createPieChart(
-                "Compras Usuario Discos Musica\n ",
+                "Compras Usuario Discos Peliculas\n ",
                 data,
                 true,
                 true,

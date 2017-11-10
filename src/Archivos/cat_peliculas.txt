@@ -1,12 +1,10 @@
-It;Andrés Muschietti;Terror;3000;500;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
-Lento y Miedoso;F. Gary Gray;Accion;1000;30;www.youtube.com/watch?v=HPegOXvd1NE
-Jack;Andrés Muschietti;Fantasia;3000;380;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
-Elena;asad;Fantasia;1500;120;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
-Aro;F. Gary Gray;Ciencia Ficcion;1000;30;www.youtube.com/watch?v=HPegOXvd1NE
-Señales;Andrés Muschietti;Ciencia Ficcion;3000;500;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
-Black Men;Andrés Muschietti;Accion;3000;505;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
-Matrix;Andrés Muschietti;Accion;3000;505;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
-Saw;Andrés Muschietti;Comedia;3000;505;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
-America;Andrés Muschietti;Comedia;3000;505;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
-Fast and Furious 8;F. Gary Gray;Accion;1000;30;www.youtube.com/watch?v=HPegOXvd1NE
-El exorcista;asad;Terror;1200;125;www.youtube.com/watch?v=fP4BBZ76DGg&t=1s
+It;Andrés Muschiett;Terror;5000;93;https://www.youtube.com/watch?v=-4q5S5BWH8A&t=6sGEOSTORM
+GEOSTORM;Gerard Butler;Ciencia Ficcion;4200;33;https://www.youtube.com/watch?v=Z1DdomnawXAEs 
+La Jefa;Melissa McCarthy;Comedia;5200;0;https://youtu.be/rlhZPl1aYbc
+LA FORMA DEL AGUA;Guillermo Del Toro;Fantasia;6200;90;https://youtu.be/S25a0rDduIw
+Guardianes;Sarik Andreasyan;Accion;4100;3;https://www.youtube.com/watch?v=krJAg-m8NLI
+DESCONTROLADAS;Amy Schumer;Comedia;4100;43;https://youtu.be/_cmSvYG5iSQ
+Saw 8;Corazon Films;Terror;3600;42;https://www.youtube.com/watch?v=7sVu31ssE6c
+The Osiris Child;Shane Abbess;Ciencia Ficcion;2300;57;https://youtu.be/4WEG6c9y4I0
+Avengers: Infinity War;Joe Russo;Accion;3400;21;https://youtu.be/6fothfUmryQ
+SCORN ;Mark Jones;Fantasia;4100;9;https://youtu.be/BKTkCa5nB_8

@@ -182,7 +182,7 @@ public class Crear_Disco extends javax.swing.JDialog {
                 CRUB_Discos crub = new CRUB_Discos();
                 crub.Crear_Disco_Musica(txtNombre.getText(), txtAutor.getText(),
                         String.valueOf(jComboBox1.getSelectedItem()), Integer.parseInt(txtPrecio.getText()),
-                        Integer.parseInt(txtCantidad.getText()), direccion);
+                        Integer.parseInt(txtCantidad.getText()), direccion + "\n");
                 JOptionPane.showMessageDialog(null, "Se ha creado el disco");
                 this.dispose();
             }

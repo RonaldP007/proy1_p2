@@ -1,2 +1,1 @@
-cc;El exorcista;pelicula;alber1426@gmail.com;100
-cc;El exorcista;pelicula;paniaguarpg007@gmail.com;100
+Luis;La Jefa;pelicula;ddssds@gmail.com;10
