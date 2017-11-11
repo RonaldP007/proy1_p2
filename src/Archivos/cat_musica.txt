@@ -1,5 +1,3 @@
-PEQUEÑA NATALY;Checo Acosta;Cumbia;2500;70;src/Archivos/Canciones/GRUPO KAROS DE MEX.. TU PRIMERA VEZ(Cumbia).mp3
-MAR DE EMOCIONES;Afrosound;Cumbia;3000;1;src/Archivos/Canciones/GRUPO KAROS DE MEX.. TU PRIMERA VEZ(Cumbia).mp3
 COMO UNA NOVELA;Los Acosta;Cumbia;2000;28;src/Archivos/Canciones/GRUPO KAROS DE MEX.. TU PRIMERA VEZ(Cumbia).mp3
 Necesito de ti;Vicente Fernandez;Rancheras;4000;38;src/Archivos/Canciones/Vicente Fernandez- No Me Se Rajar(ranchera).mp3
 La Gran Señora;Jenni Rivera;Rancheras;4500;12;src/Archivos/Canciones/Vicente Fernandez- No Me Se Rajar(ranchera).mp3
@@ -13,3 +11,5 @@ Rebelion;Joe Arroyo;Salsa;3500;30;src/Archivos/Canciones/Jerry Rivera - Ese(sals
 Cerrando mi corazon;AULIN RODRIGUEZ;Bachata;2400;148;src/Archivos/Canciones/Burbujas De Amor Juan Luis Guerra(bachata).mp3
 Ese Amor;Teodoro Reyes;Salsa;4100;51;src/Archivos/Canciones/Burbujas De Amor Juan Luis Guerra(bachata).mp3
 Me Extrañas;Luis Miguel;Bachata;3000;102;src/Archivos/Canciones/Burbujas De Amor Juan Luis Guerra(bachata).mp3
+PEQUEÑA NATALY;Checo Acosta;Cumbia;2500;75;src/Archivos/Canciones/GRUPO KAROS DE MEX.. TU PRIMERA VEZ(Cumbia).mp3
+MAR DE EMOCIONES;Afrosound;Cumbia;3000;10;src/Archivos/Canciones/GRUPO KAROS DE MEX.. TU PRIMERA VEZ(Cumbia).mp3

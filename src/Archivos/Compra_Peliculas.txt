@@ -1,13 +1,13 @@
 user01;206540245;paniaguarpg007@gmail.com;It;25000;5;pelicula;10/01/2017
 user01;206540245;paniaguarpg007@gmail.com;GEOSTORM;33600;8;pelicula;10/02/2017
-cc;207800655;ddssds@gmail.com;It;10000;2;pelicula;10/03/2017
-cc;207800655;ddssds@gmail.com;GEOSTORM;16800;4;pelicula;01/05/2017
-cc;207800655;ddssds@gmail.com;La Jefa;20800;4;pelicula;10/06/2017
-cc;207800655;ddssds@gmail.com;La Jefa;109200;21;pelicula;10/08/2017
-cc;207800655;ddssds@gmail.com;SCORN ;49200;12;pelicula;10/11/2017
-cc;207800655;ddssds@gmail.com;Avengers: Infinity War;139400;41;pelicula;10/03/2017
-cc;207800655;ddssds@gmail.com;The Osiris Child;34500;15;pelicula;02/11/2017
-cc;207800655;ddssds@gmail.com;Saw 8;43200;12;pelicula;10/11/2017
-Luis;203520452;ddssds@gmail.com;DESCONTROLADAS;16400;4;pelicula;15/04/2017
-Luis;203520452;ddssds@gmail.com;Guardianes;28700;7;pelicula;10/08/2017
-Luis;203520452;ddssds@gmail.com;LA FORMA DEL AGUA;62000;10;pelicula;10/11/2017
+cc;207800655;paniaguarpg007@gmail.com;It;10000;2;pelicula;10/03/2017
+cc;207800655;paniaguarpg007@gmail.com;GEOSTORM;16800;4;pelicula;01/05/2017
+cc;207800655;paniaguarpg007@gmail.com;La Jefa;20800;4;pelicula;10/06/2017
+cc;207800655;paniaguarpg007@gmail.com;La Jefa;109200;21;pelicula;10/08/2017
+cc;207800655;paniaguarpg007@gmail.com;SCORN ;49200;12;pelicula;10/11/2017
+cc;207800655;paniaguarpg007@gmail.com;Avengers: Infinity War;139400;41;pelicula;10/03/2017
+cc;207800655;paniaguarpg007@gmail.com;The Osiris Child;34500;15;pelicula;02/11/2017
+cc;207800655;paniaguarpg007@gmail.com;Saw 8;43200;12;pelicula;10/11/2017
+Luis;203520452;paniaguarpg007@gmail.com;DESCONTROLADAS;16400;4;pelicula;15/04/2017
+Luis;203520452;paniaguarpg007@gmail.com;Guardianes;28700;7;pelicula;10/08/2017
+Luis;203520452;paniaguarpg007@gmail.com;LA FORMA DEL AGUA;62000;10;pelicula;10/11/2017

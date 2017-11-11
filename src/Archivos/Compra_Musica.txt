@@ -3,21 +3,21 @@ user01;206540245;paniaguarpg007@gmail.com;COMO UNA NOVELA;20000;10;musica;10/11/
 user01;206540245;paniaguarpg007@gmail.com;Gitana;26400;8;musica;10/11/2017
 user01;206540245;paniaguarpg007@gmail.com;Gitana;33000;10;musica;10/11/2017
 user01;206540245;paniaguarpg007@gmail.com;FAT OF THE LAND;4800;2;musica;10/11/2017
-cc;207800655;ddssds@gmail.com;MAR DE EMOCIONES;72000;24;musica;10/09/2017
-cc;207800655;ddssds@gmail.com;COMO UNA NOVELA;34000;17;musica;10/11/2017
-cc;207800655;ddssds@gmail.com;PEQUEÑA NATALY;25000;10;musica;01/02/2017
-cc;207800655;ddssds@gmail.com;Necesito de ti;40000;10;musica;10/03/2017
-cc;207800655;ddssds@gmail.com;La Gran Señora;36000;8;musica;10/04/2017
-cc;207800655;ddssds@gmail.com;REVERENCE;45000;10;musica;10/11/2017
-cc;207800655;ddssds@gmail.com;Dos Mundos Tradicion;88000;40;musica;10/01/2017
-cc;207800655;ddssds@gmail.com;THE PRIVATE PRESS;35000;10;musica;10/11/2017
-cc;207800655;ddssds@gmail.com;Gitana;33000;10;musica;10/04/2017
-cc;207800655;ddssds@gmail.com;Lloraras;33600;8;musica;10/11/2017
-Luis;203520452;ddssds@gmail.com;Rebelion;28000;8;musica;10/05/2017
-Luis;203520452;ddssds@gmail.com;Cerrando mi corazon;14400;6;musica;10/07/2017
-Luis;203520452;ddssds@gmail.com;Ese Amor;57400;14;musica;10/11/2017
-Luis;203520452;ddssds@gmail.com;Me Extrañas;126000;42;musica;10/11/2017
-Luis;203520452;ddssds@gmail.com;FAT OF THE LAND;28800;12;musica;10/11/2017
-Luis;203520452;ddssds@gmail.com;La Gran Señora;22500;5;musica;10/11/2017
-Luis;203520452;ddssds@gmail.com;Lloraras;12600;3;musica;10/11/2017
-Luis;203520452;ddssds@gmail.com;Rebelion;17500;5;musica;10/11/2017
+cc;207800655;paniaguarpg007@gmail.com;MAR DE EMOCIONES;72000;24;musica;10/09/2017
+cc;207800655;paniaguarpg007@gmail.com;COMO UNA NOVELA;34000;17;musica;10/11/2017
+cc;207800655;paniaguarpg007@gmail.com;PEQUEÑA NATALY;25000;10;musica;01/02/2017
+cc;207800655;paniaguarpg007@gmail.com;Necesito de ti;40000;10;musica;10/03/2017
+cc;207800655;paniaguarpg007@gmail.com;La Gran Señora;36000;8;musica;10/04/2017
+cc;207800655;paniaguarpg007@gmail.com;REVERENCE;45000;10;musica;10/11/2017
+cc;207800655;paniaguarpg007@gmail.com;Dos Mundos Tradicion;88000;40;musica;10/01/2017
+cc;207800655;paniaguarpg007@gmail.com;THE PRIVATE PRESS;35000;10;musica;10/11/2017
+cc;207800655;paniaguarpg007@gmail.com;Gitana;33000;10;musica;10/04/2017
+cc;207800655;paniaguarpg007@gmail.com;Lloraras;33600;8;musica;10/11/2017
+Luis;203520452;paniaguarpg007@gmail.com;Rebelion;28000;8;musica;10/05/2017
+Luis;203520452;paniaguarpg007@gmail.com;Cerrando mi corazon;14400;6;musica;10/07/2017
+Luis;203520452;paniaguarpg007@gmail.com;Ese Amor;57400;14;musica;10/11/2017
+Luis;203520452;paniaguarpg007@gmail.com;Me Extrañas;126000;42;musica;10/11/2017
+Luis;203520452;paniaguarpg007@gmail.com;FAT OF THE LAND;28800;12;musica;10/11/2017
+Luis;203520452;paniaguarpg007@gmail.com;La Gran Señora;22500;5;musica;10/11/2017
+Luis;203520452;paniaguarpg007@gmail.com;Lloraras;12600;3;musica;10/11/2017
+Luis;203520452;paniaguarpg007@gmail.com;Rebelion;17500;5;musica;10/11/2017
